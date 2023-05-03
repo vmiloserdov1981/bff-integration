@@ -1,0 +1,31 @@
+@startmindmap
+'top to bottom direction
+
+caption figure 1
+title Org. Trees Structure  title
+* <&star>Organization 1
+** <&globe>Place 1
+*** Unit 1
+*** Unit 2
+** <&globe>Place 2
+*** Unit 3
+
+
+* <&star>Organization 2
+  ** <&globe>Place 1
+  *** Unit 1
+  *** Unit 2
+  ** <&globe>Place 2
+  *** Unit 3
+
+header
+My super header
+endheader
+
+center footer My super footer
+
+legend right
+  Short
+  legend
+endlegend
+@endmindmap

@@ -1,0 +1,30 @@
+@startuml
+title Создание корневого узла дерева
+allowmixing
+top to bottom direction
+
+actor Front
+stack {
+  json "**POST Request**" as J {
+    "rootElem": {
+            "name": "Str",
+            "TypeId":"Int"
+        }
+  }
+}
+stack {
+  json "JSON_d.json" as Jj {
+    "result":{
+        "rootElem":{
+            "id":115,
+            "name":"l1-5"}
+        }
+  }
+}
+component API
+
+Front -> J
+J -> API: POST request
+API -> Jj: POST response
+Jj -> Front
+@enduml
