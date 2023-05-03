@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "bff-integration"
+version = "0.1.0"
+description = "Integration tests for BFF API and front"
+authors = ["Igor Trudonoshin i.trudonoshin@ctrl2go.solutions"]
+readme = "README.md"
+packages = [{include = "bff_integration"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pytest = "^7.3.0"
+playwright = "^1.32.1"
+pydantic = "^1.10.7"
+allure-pytest = "^2.13.1"
+pytest-playwright = "^0.3.2"
+
+
+[tool.poetry.group.dev.dependencies]
+plantuml = "^0.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

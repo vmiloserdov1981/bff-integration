@@ -1,0 +1,9 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+.idea/
+__pycache__/
+*.py[cod]
+*$py.class
+*.iml
+*.ipr
