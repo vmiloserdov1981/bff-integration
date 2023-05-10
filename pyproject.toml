@@ -14,6 +14,10 @@ pydantic = "^1.10.7"
 allure-pytest = "^2.13.1"
 pytest-playwright = "^0.3.2"
 
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
 
 [tool.poetry.group.dev.dependencies]
 plantuml = "^0.3.0"

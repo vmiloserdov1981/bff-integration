@@ -4,11 +4,11 @@ from http import HTTPStatus
 
 from core.clients.auth_api import AuthApiClient
 from core.clients.bff_api import BffApiClient
+from core.helpers.unitnodes import delete_unitnode
 from core.helpers.utils import check_response_status
 from core.models.user import User
-from core.models.unit_marks import UnitMark, UnitMarksListResponse
-from core.models.unit_nodes import UnitNodesResponse
-from core.models.tag import TagsResponse
+from core.models.unit_marks import UnitMarksListResponse
+from core.models.tag import Tag, DeadZone, Thresholds, ThresholdItem, ParamRange, ParamItem
 
 
 @pytest.fixture(scope='session')
@@ -56,6 +56,39 @@ def bff_client(auth_token: str, bff_host: str) -> BffApiClient:
 
 
 @pytest.fixture(scope='function')
+def temp_tag() -> Tag:
+    return Tag(
+        title='Test Temp Tag',
+        physicalQuantity='TEMPERATURE',
+        physicalQuantityUnit='C',
+        markedAsObservable=True,
+        deadZone=DeadZone(type='RELATIVE', value=0),
+        thresholds=Thresholds(
+            upper=[
+                ThresholdItem(value=0, severity='urgent', isActive=False),
+                ThresholdItem(value=0, severity='high', isActive=False),
+                ThresholdItem(value=37, severity='low', isActive=True)
+            ],
+            lower=[
+                ThresholdItem(value=35, severity='urgent', isActive=True),
+                ThresholdItem(value=0, severity='high', isActive=False),
+                ThresholdItem(value=0, severity='low', isActive=False)
+            ]
+        ),
+        operatingRange=ParamRange(
+            upper=ParamItem(value=42, isActive=True),
+            lower=ParamItem(value=30, isActive=True)
+        ),
+        displayRange=ParamRange(
+            upper=ParamItem(value=44, isActive=True),
+            lower=ParamItem(value=28, isActive=True)
+        ),
+        unitId=0,
+        namedValues=[]
+    )
+
+
+@pytest.fixture(scope='function')
 def root_node_ids_to_delete(bff_client: BffApiClient) -> list:
     node_ids = []
     yield node_ids
@@ -82,28 +115,7 @@ def unit_type_ids_to_delete(bff_client: BffApiClient) -> list:
         for mark in marks:
             if mark.typeId == type_id:
                 root_id = mark.unitId
-                # Obtain root node tree
-                units_resp = bff_client.list_unit_nodes_by_root_id(root_id=root_id)
-                check_response_status(given=units_resp.status_code, expected=HTTPStatus.OK)
-                nodes_dict = UnitNodesResponse(**units_resp.json()).nodes
-                # Get root node children
-                children_ids = nodes_dict[str(root_id)].childrenIds
-                # Delete all child nodes
-                for child_id in children_ids:
-                    # Get tags for node
-                    tags_resp = bff_client.list_tags(root_id=root_id, node_id=child_id)
-                    check_response_status(given=tags_resp.status_code, expected=HTTPStatus.OK)
-                    tags = TagsResponse(**tags_resp.json()).list
-                    # Delete all tags
-                    for tag in tags:
-                        del_tag_resp = bff_client.delete_tag(root_id=root_id, node_id=child_id, tag_uuid=tag.uuid)
-                    # Delete node
-                    del_child_resp = bff_client.delete_unit_node(root_id=root_id, node_id=child_id)
-                    check_response_status(given=del_child_resp.status_code, expected=HTTPStatus.NO_CONTENT)
-                # Delete root unit node
-                # TODO: Figure out why delete unit node request contains mark id https://app.clickup.com/t/85zrykdyd
-                del_unit_root_resp = bff_client.delete_unit_node(root_id=mark.id, node_id=root_id)
-                check_response_status(given=del_unit_root_resp.status_code, expected=HTTPStatus.NO_CONTENT)
+                delete_unitnode(client=bff_client, root_id=root_id, node_id=root_id)
                 # Delete mark itself
                 del_mark_resp = bff_client.delete_unit_mark(mark_id=mark.id)
                 check_response_status(given=del_mark_resp.status_code, expected=HTTPStatus.NO_CONTENT)

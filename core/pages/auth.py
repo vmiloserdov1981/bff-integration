@@ -11,7 +11,7 @@ class AuthPage(BasePage):
     PATH = 'auth/signin'
 
     def __init__(self, page: Page, host: str):
-        super().__init__(page=page, url=f'http://{host}/{self.PATH}')
+        super().__init__(page=page, page_url=f'{host}/{self.PATH}')
         self.title: str = 'Smart Diagnostics'
     
     @property
@@ -35,12 +35,12 @@ class AuthPage(BasePage):
         return self.locator('//button[span[contains(.,"Войти")]]')
 
     @property
-    def session_request_url(self) -> str:
+    def session_request_path(self) -> str:
         return '/api/auth/session'
 
     @property
     def session_response_lambda(self) -> typing.Callable:
-        return lambda r: self.session_request_url in r.url and r.request.method == 'GET'
+        return lambda r: self.session_request_path in r.url and r.request.method == 'GET'
 
     def check_specific_locators(self) -> None:
         expect(self.page).to_have_title(self.title)
