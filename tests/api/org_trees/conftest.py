@@ -1,10 +1,6 @@
 import pytest
 
-from http import HTTPStatus
-
-from core.clients.bff_api import BffApiClient
 from core.models.org_nodes import CommonNode, RootElem
-from core.models.tag import Tag, DeadZone, Thresholds, ThresholdItem, ParamRange, ParamItem
 from core.models.unit_type import UnitType
 
 
@@ -68,37 +64,3 @@ def root_unit_node_name(unit_mark_name: str) -> str:
 def child_unit_node_name(root_unit_node_name: str) -> str:
     # TODO: Add generator
     return f'{root_unit_node_name}::FCH'
-
-
-@pytest.fixture(scope='function')
-def temp_tag() -> Tag:
-    return Tag(
-        title='Test Temp Tag',
-        physicalQuantity='TEMPERATURE',
-        physicalQuantityUnit='C',
-        markedAsObservable=True,
-        deadZone=DeadZone(type='RELATIVE', value=0),
-        thresholds=Thresholds(
-            upper=[
-                ThresholdItem(value=0, severity='urgent', isActive=False),
-                ThresholdItem(value=0, severity='high', isActive=False),
-                ThresholdItem(value=37, severity='low', isActive=True)
-            ],
-            lower=[
-                ThresholdItem(value=35, severity='urgent', isActive=True),
-                ThresholdItem(value=0, severity='high', isActive=False),
-                ThresholdItem(value=0, severity='low', isActive=False)
-            ]
-        ),
-        operatingRange=ParamRange(
-            upper=ParamItem(value=42, isActive=True),
-            lower=ParamItem(value=30, isActive=True)
-        ),
-        displayRange=ParamRange(
-            upper=ParamItem(value=44, isActive=True),
-            lower=ParamItem(value=28, isActive=True)
-        ),
-        unitId=0,
-        namedValues=[]
-    )
-

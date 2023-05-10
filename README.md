@@ -58,3 +58,25 @@ poetry install
 ```shell
 poetry run playwright install
 ```
+
+## Run tests
+
+### API
+
+```shell
+ poetry run pytest tests/api
+```
+
+### UI
+
+#### Headless mode (default)
+```shell
+ poetry run pytest tests/ui
+```
+
+#### Headed mode
+```shell
+ poetry run pytest tests/ui --headed --browser chromium
+```
+(also supported 'firefox' and 'webkit' options for browser)
+

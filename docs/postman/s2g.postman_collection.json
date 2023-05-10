@@ -1,0 +1,3252 @@
+{
+	"info": {
+		"_postman_id": "fac369ab-af6f-4373-966c-f7ad81b44bf5",
+		"name": "s2g",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "93958",
+		"_collection_link": "https://galactic-star-s2g.postman.co/workspace/s2g~f836a4d7-e669-4490-a98d-0dc81e3979d1/collection/93958-fac369ab-af6f-4373-966c-f7ad81b44bf5?action=share&creator=93958&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "csrf",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "dev.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7",
+								"disabled": true
+							},
+							{
+								"key": "cookie",
+								"value": "__Host-next-auth.csrf-token=42a16d127bb24de0e89a764a13dc0bfa27f98e7d533deb5e9deb4ce3d34d9d17%7Cf4b41e0b13977894dbae2ffa9c8d5451e1887451ec3e794bbb758de256b62407; __Secure-next-auth.callback-url=https%3A%2F%2Fdev.c2g.pw%2F",
+								"disabled": true
+							},
+							{
+								"key": "referer",
+								"value": "https://dev.c2g.pw/auth/signin?callbackUrl=https%3A%2F%2Fdev.c2g.pw%2F",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin",
+								"disabled": true
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/auth/csrf",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"csrf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "providers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "dev.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7",
+								"disabled": true
+							},
+							{
+								"key": "cookie",
+								"value": "__Host-next-auth.csrf-token=42a16d127bb24de0e89a764a13dc0bfa27f98e7d533deb5e9deb4ce3d34d9d17%7Cf4b41e0b13977894dbae2ffa9c8d5451e1887451ec3e794bbb758de256b62407; __Secure-next-auth.callback-url=https%3A%2F%2Fdev.c2g.pw%2F",
+								"disabled": true
+							},
+							{
+								"key": "if-none-match",
+								"value": "\"8eqh31i1x5o\"",
+								"disabled": true
+							},
+							{
+								"key": "referer",
+								"value": "https://dev.c2g.pw/auth/signin?callbackUrl=https%3A%2F%2Fdev.c2g.pw%2F",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0",
+								"disabled": true
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\"",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin",
+								"disabled": true
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/auth/providers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"providers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "credentials",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/auth/signin?callbackUrl=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "redirect",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "client_ident",
+									"value": "testuser",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "testuser",
+									"type": "text"
+								},
+								{
+									"key": "csrfToken",
+									"value": "823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd",
+									"type": "text"
+								},
+								{
+									"key": "callbackUrl",
+									"value": "http://eryzhov.stages.c2g.pw/auth/signin?callbackUrl=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2",
+									"type": "text"
+								},
+								{
+									"key": "json",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/auth/callback/credentials?",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"callback",
+								"credentials"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authorize",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept-encoding": true,
+							"accept": true,
+							"user-agent": true,
+							"connection": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,ru-RU;q=0.8,ru;q=0.7",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/auth/signin?callbackUrl=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client_ident\": \"{{test_login}}\",\n    \"password\": \"{{test_password}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{auth_host}}/api/v1/authorize",
+							"host": [
+								"{{auth_host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "org-trees",
+			"item": [
+				{
+					"name": "Create Node",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..CX8UsmA7F-RKbVD9.LMCWsd7H3KNxacS_zYE-p3oGcOFyzcXEHL59P2wup0malR2PSNyh4osdeIWa3JQWOddCNAOVXUCX8LNdmnNT5oiB2bbiYSPW7rHsyAKjMGolcitaDjDBjrsmOL6BGV6jgdnpvsou8ipSeaZ76WWGSlf8Mo2V91BbORKuxy1z0hZzc_kYKj51SWNnGuqNKwQrUDXcEJic2YGFy5xE1kzL4LQI1mvZU_6AVCRl4eJKu8eLH9oBDAHaMj2uQVS-HFGK2P0V0u7gRFBeZ8OaEYPPE6o0BbEv6_eCUXJQa9HhsM8FWoYxW4-FelrdwVhYbK7AJ_G3eBJbXd-uNF977Qx3JD9aLyZBI2Z6LWuxioBLKZ6LJuVpVC7PPkJEix0JrAEZ4_ps-SHaOXks6Mo2WGPcMyu6-Mkh0tEKFQFE_OST8EwFibhAn-JkMb6SUJ5RsR6V_UGqqvShEJV9jaKTQFyNBwOor32ugZmWkI2qsLU6HPLeJRyk5UPy3k3feyb2rXpX6Wpi4bCCU1Uh39BNVIbIqIxcEEvEgzwp3X5syMbLs8YunHClKID2qyiRPAqWKrN6qwFiU4YcvzpvG1-WR78lcKxTA0rZw6OpXobYmtkQ69zuC89DttnrKfDqQgkUVOzDd1yf0QFZnLumS9W2gQp3bbzyBZO50DA.ZfZxiCQ6L0Bi49nKsVYvbA",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/settings/org-tree",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rootElem\": {\n        \"name\": \"l1-4\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/org-trees",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"org-trees"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Node",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "ru"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Cookie",
+										"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..CX8UsmA7F-RKbVD9.LMCWsd7H3KNxacS_zYE-p3oGcOFyzcXEHL59P2wup0malR2PSNyh4osdeIWa3JQWOddCNAOVXUCX8LNdmnNT5oiB2bbiYSPW7rHsyAKjMGolcitaDjDBjrsmOL6BGV6jgdnpvsou8ipSeaZ76WWGSlf8Mo2V91BbORKuxy1z0hZzc_kYKj51SWNnGuqNKwQrUDXcEJic2YGFy5xE1kzL4LQI1mvZU_6AVCRl4eJKu8eLH9oBDAHaMj2uQVS-HFGK2P0V0u7gRFBeZ8OaEYPPE6o0BbEv6_eCUXJQa9HhsM8FWoYxW4-FelrdwVhYbK7AJ_G3eBJbXd-uNF977Qx3JD9aLyZBI2Z6LWuxioBLKZ6LJuVpVC7PPkJEix0JrAEZ4_ps-SHaOXks6Mo2WGPcMyu6-Mkh0tEKFQFE_OST8EwFibhAn-JkMb6SUJ5RsR6V_UGqqvShEJV9jaKTQFyNBwOor32ugZmWkI2qsLU6HPLeJRyk5UPy3k3feyb2rXpX6Wpi4bCCU1Uh39BNVIbIqIxcEEvEgzwp3X5syMbLs8YunHClKID2qyiRPAqWKrN6qwFiU4YcvzpvG1-WR78lcKxTA0rZw6OpXobYmtkQ69zuC89DttnrKfDqQgkUVOzDd1yf0QFZnLumS9W2gQp3bbzyBZO50DA.ZfZxiCQ6L0Bi49nKsVYvbA",
+										"disabled": true
+									},
+									{
+										"key": "Origin",
+										"value": "http://eryzhov.stages.c2g.pw",
+										"disabled": true
+									},
+									{
+										"key": "Referer",
+										"value": "http://eryzhov.stages.c2g.pw/settings/org-tree",
+										"disabled": true
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+										"disabled": true
+									},
+									{
+										"key": "x-session-id",
+										"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"rootElem\": {\n        \"name\": \"l1-5\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{host}}/frontapi/v1/org-trees",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frontapi",
+										"v1",
+										"org-trees"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 21 Apr 2023 13:11:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15768000 ; includeSubDomains"
+								}
+							],
+							"cookie": [],
+							"body": "{\"result\":{\"rootElem\":{\"id\":115,\"name\":\"l1-5\"}}}"
+						}
+					]
+				},
+				{
+					"name": "List trees",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE3MjA1MTksImlhdCI6MTY4MTcyMDIxOSwiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.czqeJpxPYXLlREkPid9DrgsgmMAVUJCEyzPjjWdUeSRWgFjO2c3Y3Wo_tZiS_BA_6feXgVwjKOAy8qVDEcCZuA"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..JnyoUvZn7XWboNsE.FvG8a1zIfZPqedP1kvk8C7rpXWS2Y6Y5fZunkj8MvQQ-WtzK7D0jb3wukZmDlHiNmE0nXGWx_1YhRdtmCbQh9wtRylzY237FDbSQ9mzPNboP5ta0lTYDz_Re5gVoKbzBLRBYcLx5RL8rRnN4Hg4LJevUILUICsotr6RvXunEt5TeAQbLVa0T4P3xo_hnS9KS5x1jk3NE_YIbEaLNJNwnXOMP6_-5Mki0aqY7W1XDKYmoMJnhghUn_Jo8UFza_xmIxnuh_rw70Vs1j9pAktfEsYog9Xc3eGbarKK4_7okdlQ1scbIpzbaUDiYU_Fzqz2DRB_VhpUjCdbxpJPl27esMJ4jg-sX8cecYJ7lYyMRA7WWoxuW8yi4nopH5AZ7plA_b_xJXXpy8O3-PNpcN3p2gasTFRC4qWtgID2DrBp8AoBhUg8cA9FJImTWQM3SOoXlJgey-tZHLsNj8vIz3CTC9ZBj2T_hXrpVoBOau6HRlyRZwWGVhasn_RQfP9IgulItSs5IaD6F6ew9nGEu74qmmVQbCoMKO3odo63MVshYYyaOdsKVaGX2_92d9P6YbfT3jHNCZQb0KDaYJxY6xLCiFqEdJrbhvTnRhSlv2EHyKltUtNb1svsATwysu-Xx4bzrpXYHsqwJYvI6WRxfdFw7ojQgVEa8cz4.OUvhx-7zVF0xXn-yKbVwMg",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/settings/org-tree",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/frontapi/v1/org-trees",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"org-trees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add child node",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"connection": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..Ye9-ZoOPats_cyKa.KNLWtlYFGY-jOXELHFkIO61Qf0ontbZ_403V3J2QcuTIUj-AogBAiBxvYFukdmHhAEMaVbo_z-mB4mDBQs22OYElKLyWJ6tW-aO8jaTMkxK4Qz9VnxdjL8fsBpBvDDyJ3iR8C5S-lIH4sfCP5DBbQ7pzp4lVF8tY6jx-l-6JfUcg96hK2OzxHVCAp4Ue97DAS0a51Z-gVreBwqU6rhLeI3g8rGNwtejP-n_Uqow0NHZhKY58Uwjq773bTSL9mGDNRnbAvno-yNj3mHzMyaj8nw2E6igVanLc59eGbzWEUt9u7RoIWd6mMCyzBQMkJVToN7dYOKZ0kLr-IoaxlDqbICk-lrR37pDxInuRV0fjBhlqrWn0MtL4UYR7_lmbfuSD7arJOzoD7lEZ3q8aRA7FM5okZliaIWdzdBnlGC450I804HnoV7FnTVRa7qRkQ-bLQ2pRXaXAC8eNCeJb-ZuDlPL-TOjNHJLdsNtSSNXLGvvHEZE09F9NdlVAi3eYq1v94mUoiAABeGZErlKF7WjFZ0eIokuwDzTW77jLINGQOJ3VdjLvyyl8wH7qrHUvJ80ec6NO-qQiuMxZLg4cF30O9i60oY3xRek5DB9KBAO6LJ86ua3QfvR2dT_QxV8z093_z12H-yi21NnE88jIhiP_Rg0az-F39fU.QZ7NCzcOlKGUPGrC4gS9KA",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/settings/org-tree",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"l2-1 t4\",\n    \"parentId\": 11\n}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/org-trees/11/nodes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"org-trees",
+								"11",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Node",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE4MjQwMDcsImlhdCI6MTY4MTgyMzcwNywiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.4HzZyhz_PPq2lIEVv8gK80-ZEs5Pgknn-W5OOWQANLwrngR3KKsmIV9htlQuM0GXSTt5Qfcd_C6m2ahlE_TQcw"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..kYDIcZN1NQUVoxHo.6ThndeNROlpot5p4FIXExGFQ-eynS-Gk02cop5HrKTAmcds9Sz8-I_zrYrKtwGRiZe8Mb7gU0I1JfSYveWaV9Po3ykBWeolrI3HNsGlDkWj8Vy26EeDCZEr9HMx6n8GZet9CrL9vfDksgvJIWsPSIXJSIH7vy5IodCtrAvg94dSs_OT7FtUIXd-139KrLE0hKGCjtKuICzZN2xym6SgPLNAhodWKYtG7Fw0Z_5hwHlqdSG_DSICpXkmmIC_liW-h5qy9sI8KMj5kk-npQspFDiHbmOITGltj0GCHgJcGdSw07TZ3bWTW31hqzSIbXi5NER82UJWJoxUNYWvKkTFiUbgtrcCcRGa4lHYaVKOD4AKi5tcnaHSPQNW-rINIzuybw0ktK_AbtGPrsbaJwA71hEbDeUcOTveYOAIOCvq7agUDz_7BvlvDMOLc6Pvx7OBfkl8H-tTlcA1XeKS-h6xnqxo0LpAx05aJFwznI5pTUDhBs1wONevz8lSSQSvoXsdoxL0CKJXQEHSmvsipHLRnzEetEMoZhHdpClU2rdnmdTdnbQiHEQHAOQpYYQVKorsPiB6raUqgkPCJVe-iZ52NbAXrzlM9nmkqyLJxnCk8iKoGO7x7S9BoW5QjyjbA9rTKjbOy8hQ_6EovA2srG5HZnpgwmjUOiP0.XyBDmuY5KDqvPTKE-fqHYg",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/settings/org-tree",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/frontapi/v1/org-trees/14/nodes/14",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"org-trees",
+								"14",
+								"nodes",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Child Node",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..eFhA7RqV7WI0Im7I.0BEZdH6HQlcoBwFL6Y0q6TCER_o4u3hsYz9JuiWnqsEPcbVzi9Ymp4znNM2eMIEdg5SXmRb4wsimw3taiJTDLxUKOXevV-yGIIWH3knBq-Nxl250Q_Ka7z17JHm8EvGuoLEf4-_JRRFghDfRBXnIEN4jGQ-alD1F8L1vSlePHUSR66KUFsrNQZhUo5990qbOVKCEeJ5b4163brJcklR2IETySdkz3gmZLHPJsXGAIrBniGiP8EgYOptOFAKw5pyLc1BLh5nL1YwKcoJQF7t5ym-KEqnwkPNYMwEoHC4sUpsleySByDzQrUvdoTZYR7ZLBA6lBtzWYptXE6kL7Wb-tGuBdq1LOVqxyW99R-9F9QbFcrgSpCn1h8zrv5Eoz21po4yCu8JXsUTMPWK9owRDgvVSvQrHAwW5TwdS-kzHI5vKSn6rjkhinr8G7nrh9RtFrwkt1ZK25c7XVsP8dYIuYipfADYQtiVqI2W8LXcPNCG59RVu4n2dKFRk5VvvNhLkWJe3aHcZG4FCV5U7j2Moinrr35qQYe2pmZwW9659bcYIZaIt5i1j54dTFpzpdeYbhviXX6jMgqDmUDYpQXFwjZNMUiZxjuSe8c6jXbfzX4h-X7Wa_mBtGcUiKOIP2ibla-jgk4zz7X1PCtIzyh3EYEN4wf5Lnmo.HMcVrf2_76bb_I42VAdqfQ",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/settings/org-tree",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"l2-4\",\"parentId\":30}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/org-trees/30/nodes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"org-trees",
+								"30",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List nodes by rootId",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE3MjA1MTksImlhdCI6MTY4MTcyMDIxOSwiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.czqeJpxPYXLlREkPid9DrgsgmMAVUJCEyzPjjWdUeSRWgFjO2c3Y3Wo_tZiS_BA_6feXgVwjKOAy8qVDEcCZuA"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..JnyoUvZn7XWboNsE.FvG8a1zIfZPqedP1kvk8C7rpXWS2Y6Y5fZunkj8MvQQ-WtzK7D0jb3wukZmDlHiNmE0nXGWx_1YhRdtmCbQh9wtRylzY237FDbSQ9mzPNboP5ta0lTYDz_Re5gVoKbzBLRBYcLx5RL8rRnN4Hg4LJevUILUICsotr6RvXunEt5TeAQbLVa0T4P3xo_hnS9KS5x1jk3NE_YIbEaLNJNwnXOMP6_-5Mki0aqY7W1XDKYmoMJnhghUn_Jo8UFza_xmIxnuh_rw70Vs1j9pAktfEsYog9Xc3eGbarKK4_7okdlQ1scbIpzbaUDiYU_Fzqz2DRB_VhpUjCdbxpJPl27esMJ4jg-sX8cecYJ7lYyMRA7WWoxuW8yi4nopH5AZ7plA_b_xJXXpy8O3-PNpcN3p2gasTFRC4qWtgID2DrBp8AoBhUg8cA9FJImTWQM3SOoXlJgey-tZHLsNj8vIz3CTC9ZBj2T_hXrpVoBOau6HRlyRZwWGVhasn_RQfP9IgulItSs5IaD6F6ew9nGEu74qmmVQbCoMKO3odo63MVshYYyaOdsKVaGX2_92d9P6YbfT3jHNCZQb0KDaYJxY6xLCiFqEdJrbhvTnRhSlv2EHyKltUtNb1svsATwysu-Xx4bzrpXYHsqwJYvI6WRxfdFw7ojQgVEa8cz4.OUvhx-7zVF0xXn-yKbVwMg",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/settings/org-tree",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/frontapi/v1/org-trees/30/nodes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"org-trees",
+								"30",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Root Node",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODE5MDk3NDIsImlhdCI6MTY4MTkwOTQ0MiwiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.lHgmRhBAu0BH56HuhqDCASa1Ho5Q1QZ91Xh6mesHfccWhYaLLxpRSvEy4xSLnZsd0-a1goDqhfgEf27oDUWc7A"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2ForgTrees%2F2%2Fnodes%2F2; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..SNx8J1-F-saRZZ38.xC-G7CS_dGvyqhG1Pov0gynYhOnAyYUKY34QKxo-7XiUvTp-cjzHFh7Nv_bTt979pex1D0h07SMH3aMT2yQichZcddWV7BHXs2QM5nVvnOY1MYAIXfFjKxlF4hScppZCaOjOzUoOGjaQvzZ-qdoC04bdUWyCet7ggzmHcGxZwXuvOeBoNM91MT2TpcPxOYMKe4XqrJseYDmyTcLo7jpRcOyOtA-DGHd10IMQ9iIYwd6QeF87NQ0f6P-CdVf-yPX_xCYo1NZlJLFJlF1HUR2y17XAmsB-t1JjCBGMArgyNGm9WzoDxHSuKPtkaQi_65dk6jghWcXHzbA0O-TY3DAZXs5cscabgAhdzaxkFZu7sqccv1Hl0En-ML5szrbMdo0zyTLNcFjvSuiked2ojiltbMlBwlIV1UYj9y5t107s7X7Y8YZRJPnkSCIsxnOBcGDGgMg83xRoYr1MEv4rBYhuiB1P5NYxMxoZ0VM4Cixxl5DPK1LnYe2a3xBVxyorD0wI3zie0l4i2w1bJOmjHyzccxtS0Nqse4P3mi2SlnDAI9xCI6897b7FWdEeKEpHOlpS-5-rYVtd-_jGtxXPZtRp5rKp2aV1wzEijQE9CZ2i0t7c7M0AHAqFzdzxWUSkNYAvZbNaRsMC2kVleAkQwWmNSQ4eo7ZQrxo.yIeuJi4IhZC_5imGrGcRmw"
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/settings/org-tree"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"L1-a-upd\"\n}"
+						},
+						"url": {
+							"raw": "http://eryzhov.stages.c2g.pw/frontapi/v1/org-trees/56/nodes/56",
+							"protocol": "http",
+							"host": [
+								"eryzhov",
+								"stages",
+								"c2g",
+								"pw"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"org-trees",
+								"56",
+								"nodes",
+								"56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Leaf from Unit tree",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODI1MTk0NzUsImlhdCI6MTY4MjUxOTE3NSwiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.EKGrdYtqiMalfOBrrFkr18xwsrBnfxxj_jupUVRa-ltBHbliRvgM6xttXXoM2NoS6sbzgLC7M7r0vDgaIV40_w"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..g09hyNmMHBzHfWn8.cMwQDLIADoPX7_gXRjlwz-ss8lE06X6zdRqBoQ1RAbrU2NtvgTP-gkShmRVs98sG5eDuH_KWdboI9eRuBdsOd0BQYPqjaTpxI9hYmS90XGoD7GRxbRJ2bxfH_4SCFDzI9O0sQLrHDUIKArTt5UBAhKHsTjPYjqjJITVi6Y2M0p0x8PmSvnE9j5fvEqC6HqelCJDrWCwawRIV0dcCJkpi9VjebBg_3Kr1QuvEg-_yr4MVd9ruEQE_TF0-YnvSnSE1KxKTRJAa2qC58hnyJeIyReU_a0HuRrl1UHrsy4eQH8cvPB1BJvYNaqDw5G670tPQ5zUO58Ck3a7UJ1kqivJ3SdNQG1H4c61njWPqE9cq0A37AGsL0-gRxZH0EapslpCrz0-XCFfJKMqAZhe0sy3uXAqsVoUQSg2xnzIvelVJDvx8sFtst3dSQ5zxt_7Gr0pHXEFT8o_BOF6uhQoHnpCx-EFvkljCOlpTzWlSG0o98mAEYHn8SvIvTtjK7wdyQ8uNQB8YDQGHB5HWAbvXbOC9Igtuwvy-Vg_SKt2IF6K-Uj7rnRSqbQK2gJJIalpeiNY0tBcVGvsQ3alEEUE2YA0D5BVa6igdBgQz4-agGnBI4r3I9YWd2jG1uNzVcZn8aFAqLYoJIuHqJUSX2ou3EzSu5ecktNWae8s.1ogvKscdOD8PsvuOLhkEjw"
+							},
+							{
+								"key": "origin",
+								"value": "https://eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "referer",
+								"value": "https://eryzhov.stages.c2g.pw/settings/org-tree"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"BFG\",\"parentId\":207,\"unitNodeTreeRootIdRef\":79}"
+						},
+						"url": {
+							"raw": "https://eryzhov.stages.c2g.pw/frontapi/v1/org-trees/207/nodes",
+							"protocol": "https",
+							"host": [
+								"eryzhov",
+								"stages",
+								"c2g",
+								"pw"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"org-trees",
+								"207",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "unit-types",
+			"item": [
+				{
+					"name": "Create Unit Type",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"A3\"}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unit-types",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unit-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Unit Type",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unit-types/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unit-types",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Unit Type",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"A2-ch\"}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unit-types/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unit-types",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Unit Types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unit-types",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unit-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "unit-nodes",
+			"item": [
+				{
+					"name": "Create Unit Node",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..mFvJjyTBxQFKcZqm.LRL6yZJyCk2oRFilEn-TWUtvckr1o9TiPZUjRHXQ-z07nwI2UIzireD2-JNnZDGWCPpG-qK1tY5I7B8jEyxzsMZqncMUC6-XMuG8MErGt1YQ9cw-iMVMztX2K1gBxvbKaF3IRj0qeXTfKLqzuTyYgvs-MMZbxzY9lGJyJOlrKUqkm8jxJ-K5EkYI8NK6BUzKmTlej6m0mgVU2HTA-HXFCXjXEgj28CpAD3NdZtN5qdLxnLDghiivun7VISAZtSgy_tGts_cjOX0FA9Fw1yCUUsQP9fseXlExmjy6Zx6ddGAm5j0zxehuCYmACoFtN9CZ58VABXqCLGv8u2X7dAISew0Wxv9KN7kkA-m0izGoAS2gkbdrb8JC1nl-QL6YmfEu2_337L2D8kMch21x7ZyL_ID1ZRLYmVw0QbHkbPKLeXPOUddC0wsUyIujwFr8VMWr9PxVvnhWmWbv_8To2jjkfor1wsLnfj3jioBWtqZoJLX2dnb85CvkZzv1FEnFPUo1nHNa11Oq9URuw10_2GXHc9ggS_wG1gAeaMiXNr6IQXeeqMCOCKIx_Xbrx7ru1CqRkD0mldWLZ21pdlShxGUMcDJ16pJJdP6FqUpCBv4YFCeMehx0BNkBZeJrYcXHeaCUCMs3JSl2Anf5W9-FTapgzYT1sWuLCeI.cvHNOHdkAhOmRA9CXuWsUQ",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"cccffff\",\"nodeKind\":\"unit_node\",\"parentId\":3}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unitnode-trees/3/nodes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees",
+								"3",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Unit root Nodes",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth_header}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..mFvJjyTBxQFKcZqm.LRL6yZJyCk2oRFilEn-TWUtvckr1o9TiPZUjRHXQ-z07nwI2UIzireD2-JNnZDGWCPpG-qK1tY5I7B8jEyxzsMZqncMUC6-XMuG8MErGt1YQ9cw-iMVMztX2K1gBxvbKaF3IRj0qeXTfKLqzuTyYgvs-MMZbxzY9lGJyJOlrKUqkm8jxJ-K5EkYI8NK6BUzKmTlej6m0mgVU2HTA-HXFCXjXEgj28CpAD3NdZtN5qdLxnLDghiivun7VISAZtSgy_tGts_cjOX0FA9Fw1yCUUsQP9fseXlExmjy6Zx6ddGAm5j0zxehuCYmACoFtN9CZ58VABXqCLGv8u2X7dAISew0Wxv9KN7kkA-m0izGoAS2gkbdrb8JC1nl-QL6YmfEu2_337L2D8kMch21x7ZyL_ID1ZRLYmVw0QbHkbPKLeXPOUddC0wsUyIujwFr8VMWr9PxVvnhWmWbv_8To2jjkfor1wsLnfj3jioBWtqZoJLX2dnb85CvkZzv1FEnFPUo1nHNa11Oq9URuw10_2GXHc9ggS_wG1gAeaMiXNr6IQXeeqMCOCKIx_Xbrx7ru1CqRkD0mldWLZ21pdlShxGUMcDJ16pJJdP6FqUpCBv4YFCeMehx0BNkBZeJrYcXHeaCUCMs3JSl2Anf5W9-FTapgzYT1sWuLCeI.cvHNOHdkAhOmRA9CXuWsUQ",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unitnode-trees",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Unit Node Tree",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"let header = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    token = response_body.access_token",
+									"    header = `Bearer ${token}`",
+									"    console.log(`Token: ${token}`)",
+									"    console.log(`Header: ${header}`)",
+									"",
+									"    console.log(`Token: ${token}`)",
+									"    pm.globals.set('auth_token', token);",
+									"    pm.globals.set('auth_header', header);",
+									"    let a = pm.globals.get('auth_header')",
+									"    console.log(`FROM VARS: ${header}`)",
+									"",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json;charset=UTF-8"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth_header}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..ukfYGb0Kj-a9cB9N.su9Euc0pnBnhf1Ih41JzSwBbMMA7fikX7kTABh56GkqS9hZt1U7857ElJebM23EQElS1Pp2oIB3nX6rF4PgEAzUvtQtHS5rYa1Y7ArunbgR5vEJyBoNFNtdHjmpyX08p3zv5V_GN16DbNHCV7_R0dCmx3_p2dFcN0GDh4wxBOgS8AvTRLU8s_9vusTosvwcyCUuWVHkYoqjsdS1Ngn5VqI4K9wQ_60PwHJTLT6J_UySfxvR_HKY_S1ddk_Kpp57G63iuDgDw2jDz1xbExDAIYNiegLZuTcEl7x8d6GIzurfevGLSAJ5k0HoitGNaApR52Ve-asad7iRcZ2KFSPPCQL2sHmPqtvvJdGYJCqieoIv8vpX1jBXW0eJT1B9BgMC-Rc3ukhcgoQT2jKT5ntTSpBIfeRENndJjnL9d1XU5tO9KrmwF0LO6tA8UGEBfQ-_pXw9cLHcbp8I6U0SFpoU57Jw--8HHuXBBfJE-AEzNB5tA_3nu5kALQAMboWTsSeDywIFhAVKGrKZpeiITPEAS_YfZ2cTI_QKah_Desv4eEtWWijxEW7OO08HzTl1L-PZ6oif-U3-c6JFhwelVuH2kAymPvbMc9YIuVoIDgH5zSTj4jnDJpJWhFHAQG6vKUzVMiLMrP_21cGmfucdP33SVApvL0SYYEXo.Y0eGzHROE8217wme2lqIvw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unitnode-trees/8/nodes",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees",
+								"8",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Root Unit Node",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODIzNDQ2NzYsImlhdCI6MTY4MjM0NDM3NiwiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.UsypaCLpdjc9AlUJrzyoWiCz4IOp_IfWC8hsD76bHiVBFExDIgFWVHQNah2-hsaMakILJKM80UkmPaBMGzFWEA"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..NDj0M-MXijZ2U1BA.dWufKQ4zdWU4EE0Uz2h9QzOu57pnWMf89LZ9fdVuAoM0-edTItxE_j0tG3pbqgm5oJOMaE7C39sF8HVM5Hh9eMd_0W6iTRwh1bEIQgL1tWeDlAXCvhuxZRw4TizkQ6nADlRx7_rbqf0v3Evrn4FxAY3AWwmsJeE5Ee4tDswcAOpkyg9bX7GKXLJ-KY8iNLm7-7gLKl9S3XpbHAeFiki3ID8EEVNNar-cQ_bkteCyh3x2gV36_KRIjuba9hiDYjryMOn6l-G2mrnWem5zhFHKJljogeyPtJriVxjFZFUGEtbcOR_WkYMSR3SblDjLJLhLiGFuOP7HXWH_u1Iz9RpdKpAcXkuRDdZQ3Ltuie1mLXP6L2SCbhg1CjJia9TxYGUkG74gj8v-3HABE2bcSuiNG4676C-fBr_Zh35M7DDFT5xYNI58YOufr7-UCOA_FaeGcVF-9_tswLJxVbf2qhC9mpYgGTM2lCLEsi7k3QBjG1kGgrswFVvnF5RjULbnQ5bJG1aIN7mDD8XseafxZ-tQtFDu0cd0Sq2WGyMoGgvWwH7UYnWUtyUp5cXbLtqHhThaWvKpHjlATSdLWIoPFnVEOr3wIk9H9WLkCBeTb7r0DNVYQHriT1eXbBfxT0Cnn_Exu_Bx2o57Ui2xuvJVX3sZq9t-9kE5qis.Ult0MtvXYNJwbNcagdwkHw"
+							},
+							{
+								"key": "origin",
+								"value": "https://eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "referer",
+								"value": "https://eryzhov.stages.c2g.pw/markEditor"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"rootNode\":{\"name\":\"aa2233\",\"typeId\":20,\"markId\":31}}"
+						},
+						"url": {
+							"raw": "https://eryzhov.stages.c2g.pw/frontapi/v1/unitnode-trees",
+							"protocol": "https",
+							"host": [
+								"eryzhov",
+								"stages",
+								"c2g",
+								"pw"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tags",
+			"item": [
+				{
+					"name": "Create Tag",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..ZEJt3qYbsAloUBcE.GQe8V3x2a6eiE5m33vHuwQrYb9GFbk5nmkJHrZ68gr3RWrkPlEsFNAArrWoXbfZiX3GKtsZ0z7wmo2NUwRB0E-BUZAQdQ_r9do68bE2YbzgvYJvQUyjVN8cvyqzCy83ehzeDe41dmjlcFzdVWxe1L-4NFnfO-CPII2bvxpeugd0HOoE0eM3AmAHO8Mhh2dUnGDIdLUaixTDiRWlfj_LTf1AVJ1R0qXlmSKNTlup0UCL8ZM5mJMlftChyBD_fKbhXGUYspKHmOoTi_5VQs2nIB0jsr-Z-kIL3cNwzDDlZ4xIGB21auwfq9vsErf5Pn9xOu2N9jrstlmmA8CzELsk0O28bKI-3gl8fgHOtO1IWuiRbg4FerAw2KvU6KL8On8fAWn8Xg3qIekt4X3MP79_bZpzOvxKX9kYcKapFfyBHWp2flOs3FTIF_NlsjbvPPCThL3onmb50LFPFYas1qrqCnzcAkbmZGfvXLr0Kg6YjTTNvO9M9L1igg6lwVzeg6Gp7YPqh9NGBS3qcWVMgYN-a8ipZ8N0hGe_yDx5c7nMpRxefSRtE9KTalHpl80AR0R06KORPlRU-BJq2XoBNCVMBRO68hzyGBllXbk6EmLI3ReBkLzMPcTiTrJ8bm2yxZeGtdizvLeS2a3F6jZStoYYxttyHZvVluqE.VNkrMa-m-k6UnKudJ6B9tA",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"\",\n    \"title\": \"t1\",\n    \"value\": 0,\n    \"physicalQuantity\": \"TEMPERATURE\",\n    \"physicalQuantityUnit\": \"m_s\",\n    \"markedAsObservable\": false,\n    \"deadZone\": {\n        \"type\": \"ABSOLUTE\",\n        \"value\": 30\n    },\n    \"thresholds\": {\n        \"upper\": [\n            {\n                \"value\": 0,\n                \"severity\": \"urgent\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 50,\n                \"severity\": \"high\",\n                \"isActive\": true\n            }\n        ],\n        \"lower\": [\n            {\n                \"value\": 0,\n                \"severity\": \"low\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 10,\n                \"severity\": \"high\",\n                \"isActive\": true\n            }\n        ]\n    },\n    \"operatingRange\": {\n        \"upper\": {\n            \"value\": 100,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 0,\n            \"isActive\": true\n        }\n    },\n    \"displayRange\": {\n        \"upper\": {\n            \"value\": 100,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 0,\n            \"isActive\": true\n        }\n    },\n    \"unitId\": 0,\n    \"namedValues\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unitnode-trees/1/nodes/5/ltags",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees",
+								"1",
+								"nodes",
+								"5",
+								"ltags"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Tag",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "ru",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									},
+									{
+										"key": "Cookie",
+										"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..ZEJt3qYbsAloUBcE.GQe8V3x2a6eiE5m33vHuwQrYb9GFbk5nmkJHrZ68gr3RWrkPlEsFNAArrWoXbfZiX3GKtsZ0z7wmo2NUwRB0E-BUZAQdQ_r9do68bE2YbzgvYJvQUyjVN8cvyqzCy83ehzeDe41dmjlcFzdVWxe1L-4NFnfO-CPII2bvxpeugd0HOoE0eM3AmAHO8Mhh2dUnGDIdLUaixTDiRWlfj_LTf1AVJ1R0qXlmSKNTlup0UCL8ZM5mJMlftChyBD_fKbhXGUYspKHmOoTi_5VQs2nIB0jsr-Z-kIL3cNwzDDlZ4xIGB21auwfq9vsErf5Pn9xOu2N9jrstlmmA8CzELsk0O28bKI-3gl8fgHOtO1IWuiRbg4FerAw2KvU6KL8On8fAWn8Xg3qIekt4X3MP79_bZpzOvxKX9kYcKapFfyBHWp2flOs3FTIF_NlsjbvPPCThL3onmb50LFPFYas1qrqCnzcAkbmZGfvXLr0Kg6YjTTNvO9M9L1igg6lwVzeg6Gp7YPqh9NGBS3qcWVMgYN-a8ipZ8N0hGe_yDx5c7nMpRxefSRtE9KTalHpl80AR0R06KORPlRU-BJq2XoBNCVMBRO68hzyGBllXbk6EmLI3ReBkLzMPcTiTrJ8bm2yxZeGtdizvLeS2a3F6jZStoYYxttyHZvVluqE.VNkrMa-m-k6UnKudJ6B9tA",
+										"disabled": true
+									},
+									{
+										"key": "Origin",
+										"value": "http://eryzhov.stages.c2g.pw",
+										"disabled": true
+									},
+									{
+										"key": "Referer",
+										"value": "http://eryzhov.stages.c2g.pw/markEditor",
+										"disabled": true
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+										"disabled": true
+									},
+									{
+										"key": "x-session-id",
+										"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"uuid\": \"\",\n    \"title\": \"t1\",\n    \"value\": 0,\n    \"physicalQuantity\": \"TEMPERATURE\",\n    \"physicalQuantityUnit\": \"m_s\",\n    \"markedAsObservable\": false,\n    \"deadZone\": {\n        \"type\": \"ABSOLUTE\",\n        \"value\": 30\n    },\n    \"thresholds\": {\n        \"upper\": [\n            {\n                \"value\": 0,\n                \"severity\": \"urgent\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 50,\n                \"severity\": \"high\",\n                \"isActive\": true\n            }\n        ],\n        \"lower\": [\n            {\n                \"value\": 0,\n                \"severity\": \"low\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 10,\n                \"severity\": \"high\",\n                \"isActive\": true\n            }\n        ]\n    },\n    \"operatingRange\": {\n        \"upper\": {\n            \"value\": 100,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 0,\n            \"isActive\": true\n        }\n    },\n    \"displayRange\": {\n        \"upper\": {\n            \"value\": 100,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 0,\n            \"isActive\": true\n        }\n    },\n    \"unitId\": 0,\n    \"namedValues\": []\n}"
+								},
+								"url": {
+									"raw": "{{host}}/frontapi/v1/unitnode-trees/1/nodes/5/ltags",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frontapi",
+										"v1",
+										"unitnode-trees",
+										"1",
+										"nodes",
+										"5",
+										"ltags"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Apr 2023 12:55:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "713"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15768000 ; includeSubDomains"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"uuid\": \"d1580bd7-2def-46ff-abd4-05d207116f71\",\n        \"title\": \"t1\",\n        \"physicalQuantity\": \"TEMPERATURE\",\n        \"physicalQuantityUnit\": \"C\",\n        \"deadZone\": {\n            \"type\": \"ABSOLUTE\",\n            \"value\": 30\n        },\n        \"thresholds\": {\n            \"upper\": [\n                {\n                    \"value\": 50,\n                    \"severity\": \"high\",\n                    \"isActive\": true\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                }\n            ],\n            \"lower\": [\n                {\n                    \"value\": 10,\n                    \"severity\": \"high\",\n                    \"isActive\": true\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                }\n            ]\n        },\n        \"namedValues\": [],\n        \"operatingRange\": {\n            \"upper\": {\n                \"value\": 100,\n                \"isActive\": true\n            },\n            \"lower\": {\n                \"value\": 0,\n                \"isActive\": true\n            }\n        },\n        \"displayRange\": {\n            \"upper\": {\n                \"value\": 100,\n                \"isActive\": true\n            },\n            \"lower\": {\n                \"value\": 0,\n                \"isActive\": true\n            }\n        },\n        \"unitId\": 5,\n        \"markedAsObservable\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Tag (few params)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..ZEJt3qYbsAloUBcE.GQe8V3x2a6eiE5m33vHuwQrYb9GFbk5nmkJHrZ68gr3RWrkPlEsFNAArrWoXbfZiX3GKtsZ0z7wmo2NUwRB0E-BUZAQdQ_r9do68bE2YbzgvYJvQUyjVN8cvyqzCy83ehzeDe41dmjlcFzdVWxe1L-4NFnfO-CPII2bvxpeugd0HOoE0eM3AmAHO8Mhh2dUnGDIdLUaixTDiRWlfj_LTf1AVJ1R0qXlmSKNTlup0UCL8ZM5mJMlftChyBD_fKbhXGUYspKHmOoTi_5VQs2nIB0jsr-Z-kIL3cNwzDDlZ4xIGB21auwfq9vsErf5Pn9xOu2N9jrstlmmA8CzELsk0O28bKI-3gl8fgHOtO1IWuiRbg4FerAw2KvU6KL8On8fAWn8Xg3qIekt4X3MP79_bZpzOvxKX9kYcKapFfyBHWp2flOs3FTIF_NlsjbvPPCThL3onmb50LFPFYas1qrqCnzcAkbmZGfvXLr0Kg6YjTTNvO9M9L1igg6lwVzeg6Gp7YPqh9NGBS3qcWVMgYN-a8ipZ8N0hGe_yDx5c7nMpRxefSRtE9KTalHpl80AR0R06KORPlRU-BJq2XoBNCVMBRO68hzyGBllXbk6EmLI3ReBkLzMPcTiTrJ8bm2yxZeGtdizvLeS2a3F6jZStoYYxttyHZvVluqE.VNkrMa-m-k6UnKudJ6B9tA",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"t1-2\",\n    \"physicalQuantity\": \"TEMPERATURE\",\n    \"markedAsObservable\": false,\n    \"deadZone\": {\n        \"type\": \"ABSOLUTE\",\n        \"value\": 30\n    },\n    \"thresholds\": {\n        \"upper\": [\n            {\n                \"value\": 50,\n                \"severity\": \"high\",\n                \"isActive\": true\n            }\n        ],\n        \"lower\": [\n            {\n                \"value\": 10,\n                \"severity\": \"high\",\n                \"isActive\": true\n            }\n        ]\n    },\n    \"operatingRange\": {\n        \"upper\": {\n            \"value\": 100,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 0,\n            \"isActive\": true\n        }\n    },\n    \"displayRange\": {\n        \"upper\": {\n            \"value\": 100,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 0,\n            \"isActive\": true\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unitnode-trees/1/nodes/5/ltags",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees",
+								"1",
+								"nodes",
+								"5",
+								"ltags"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Tag",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "Accept-Language",
+										"value": "ru",
+										"disabled": true
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{auth_token}}"
+									},
+									{
+										"key": "Connection",
+										"value": "keep-alive",
+										"disabled": true
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"disabled": true
+									},
+									{
+										"key": "Cookie",
+										"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..ZEJt3qYbsAloUBcE.GQe8V3x2a6eiE5m33vHuwQrYb9GFbk5nmkJHrZ68gr3RWrkPlEsFNAArrWoXbfZiX3GKtsZ0z7wmo2NUwRB0E-BUZAQdQ_r9do68bE2YbzgvYJvQUyjVN8cvyqzCy83ehzeDe41dmjlcFzdVWxe1L-4NFnfO-CPII2bvxpeugd0HOoE0eM3AmAHO8Mhh2dUnGDIdLUaixTDiRWlfj_LTf1AVJ1R0qXlmSKNTlup0UCL8ZM5mJMlftChyBD_fKbhXGUYspKHmOoTi_5VQs2nIB0jsr-Z-kIL3cNwzDDlZ4xIGB21auwfq9vsErf5Pn9xOu2N9jrstlmmA8CzELsk0O28bKI-3gl8fgHOtO1IWuiRbg4FerAw2KvU6KL8On8fAWn8Xg3qIekt4X3MP79_bZpzOvxKX9kYcKapFfyBHWp2flOs3FTIF_NlsjbvPPCThL3onmb50LFPFYas1qrqCnzcAkbmZGfvXLr0Kg6YjTTNvO9M9L1igg6lwVzeg6Gp7YPqh9NGBS3qcWVMgYN-a8ipZ8N0hGe_yDx5c7nMpRxefSRtE9KTalHpl80AR0R06KORPlRU-BJq2XoBNCVMBRO68hzyGBllXbk6EmLI3ReBkLzMPcTiTrJ8bm2yxZeGtdizvLeS2a3F6jZStoYYxttyHZvVluqE.VNkrMa-m-k6UnKudJ6B9tA",
+										"disabled": true
+									},
+									{
+										"key": "Origin",
+										"value": "http://eryzhov.stages.c2g.pw",
+										"disabled": true
+									},
+									{
+										"key": "Referer",
+										"value": "http://eryzhov.stages.c2g.pw/markEditor",
+										"disabled": true
+									},
+									{
+										"key": "User-Agent",
+										"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+										"disabled": true
+									},
+									{
+										"key": "x-session-id",
+										"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"uuid\": \"\",\n    \"title\": \"t1\",\n    \"value\": 0,\n    \"physicalQuantity\": \"TEMPERATURE\",\n    \"physicalQuantityUnit\": \"m_s\",\n    \"markedAsObservable\": false,\n    \"deadZone\": {\n        \"type\": \"ABSOLUTE\",\n        \"value\": 30\n    },\n    \"thresholds\": {\n        \"upper\": [\n            {\n                \"value\": 0,\n                \"severity\": \"urgent\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 50,\n                \"severity\": \"high\",\n                \"isActive\": true\n            }\n        ],\n        \"lower\": [\n            {\n                \"value\": 0,\n                \"severity\": \"low\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 10,\n                \"severity\": \"high\",\n                \"isActive\": true\n            }\n        ]\n    },\n    \"operatingRange\": {\n        \"upper\": {\n            \"value\": 100,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 0,\n            \"isActive\": true\n        }\n    },\n    \"displayRange\": {\n        \"upper\": {\n            \"value\": 100,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 0,\n            \"isActive\": true\n        }\n    },\n    \"unitId\": 0,\n    \"namedValues\": []\n}"
+								},
+								"url": {
+									"raw": "{{host}}/frontapi/v1/unitnode-trees/1/nodes/5/ltags",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"frontapi",
+										"v1",
+										"unitnode-trees",
+										"1",
+										"nodes",
+										"5",
+										"ltags"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 20 Apr 2023 12:55:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "713"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15768000 ; includeSubDomains"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"uuid\": \"d1580bd7-2def-46ff-abd4-05d207116f71\",\n        \"title\": \"t1\",\n        \"physicalQuantity\": \"TEMPERATURE\",\n        \"physicalQuantityUnit\": \"C\",\n        \"deadZone\": {\n            \"type\": \"ABSOLUTE\",\n            \"value\": 30\n        },\n        \"thresholds\": {\n            \"upper\": [\n                {\n                    \"value\": 50,\n                    \"severity\": \"high\",\n                    \"isActive\": true\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                }\n            ],\n            \"lower\": [\n                {\n                    \"value\": 10,\n                    \"severity\": \"high\",\n                    \"isActive\": true\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                }\n            ]\n        },\n        \"namedValues\": [],\n        \"operatingRange\": {\n            \"upper\": {\n                \"value\": 100,\n                \"isActive\": true\n            },\n            \"lower\": {\n                \"value\": 0,\n                \"isActive\": true\n            }\n        },\n        \"displayRange\": {\n            \"upper\": {\n                \"value\": 100,\n                \"isActive\": true\n            },\n            \"lower\": {\n                \"value\": 0,\n                \"isActive\": true\n            }\n        },\n        \"unitId\": 5,\n        \"markedAsObservable\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Temp Tag",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authority",
+								"value": "eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODI0MzUwNDcsImlhdCI6MTY4MjQzNDc0NywiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.hs8yyHWcK_0fH_--BpmqCerjx7nOn42BtQqMXoQf-mBvQ2JnMEuBPFAjkLsccRAtt6auH9GWmqf3wWBB3-_olw"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..I11v3ksuaeYJAbD4.ES5ScR0pfedTLZ9BBQesipby5UG4sGDNoBAm2_61-b-9-aXGs7CxHPHnP5NFKZbV8C2wWh2wFuV_GUArKrdctE2Hc1N47-i3g95VrrGLPJcv-EzZYLLB_qc5sWB1uUTjpAeJk1rQJhB4uDuUZ-OSC8YfRFoV-yAILeD_rt07xk7ZoLqEQqp9Oa4ZoPR4rbjmW3IeVPnEkfeuyKxhEbhYfNAEESVw8nkRPX0dXyAzpm2Tle_xwMGPv8WVLtV33OhQoqvQCGK_Xekx5vY1vaE1cuv9fNUbceHylmpMt1DA1oCZiyZiyQGPGwZh6rRjVYSNAL3cYw1MrKW28MB6wYA9Z91m7PLRcBIqqcvRzACeoWQvKB43EMzQ-2MxhxUBrpVdXZlWU1qiob8l74FavZyOcooYAUjH1We4oU2KujNZK_9DrCdcNjXkijbIJUHd80-WhnHKe7jbG6uazR9fWEgKw7a8GDtD3qnwX-g9DV6pw9frAiPGKNqKShCCd-UUX22vj8gHYLRWvZPu-DnIeHBoAN-zeP_00ZfrTlOUR4QowhbrH_YMDHgyAfgieih2o1vAtt6e3MoyxpRzuYA1LbdMppN366H5HCgwAu8XoW1FyZEGKK5GBNI6mZiEokR_lJGz5j9wKTyT36t2VPQk16FRkiZkPcJNt-4.wqSmS2D7D5sl6pb2694vdQ"
+							},
+							{
+								"key": "origin",
+								"value": "https://eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "referer",
+								"value": "https://eryzhov.stages.c2g.pw/markEditor"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uuid\": \"\",\n    \"title\": \"A4-M1-N1-Temp\",\n    \"value\": 0,\n    \"physicalQuantity\": \"TEMPERATURE\",\n    \"physicalQuantityUnit\": \"m_s\",\n    \"markedAsObservable\": true,\n    \"deadZone\": {\n        \"type\": \"RELATIVE\",\n        \"value\": 0\n    },\n    \"thresholds\": {\n        \"upper\": [\n            {\n                \"value\": 0,\n                \"severity\": \"urgent\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 37,\n                \"severity\": \"low\",\n                \"isActive\": true\n            }\n        ],\n        \"lower\": [\n            {\n                \"value\": 0,\n                \"severity\": \"low\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 35,\n                \"severity\": \"urgent\",\n                \"isActive\": true\n            }\n        ]\n    },\n    \"operatingRange\": {\n        \"upper\": {\n            \"value\": 42,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 30,\n            \"isActive\": true\n        }\n    },\n    \"displayRange\": {\n        \"upper\": {\n            \"value\": 42,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 28,\n            \"isActive\": true\n        }\n    },\n    \"unitId\": 0,\n    \"namedValues\": []\n}"
+						},
+						"url": {
+							"raw": "https://eryzhov.stages.c2g.pw/frontapi/v1/unitnode-trees/8/nodes/30/ltags",
+							"protocol": "https",
+							"host": [
+								"eryzhov",
+								"stages",
+								"c2g",
+								"pw"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees",
+								"8",
+								"nodes",
+								"30",
+								"ltags"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Temp Tag",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "authority",
+										"value": "eryzhov.stages.c2g.pw"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "ru"
+									},
+									{
+										"key": "authorization",
+										"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODI0MzUwNDcsImlhdCI6MTY4MjQzNDc0NywiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.hs8yyHWcK_0fH_--BpmqCerjx7nOn42BtQqMXoQf-mBvQ2JnMEuBPFAjkLsccRAtt6auH9GWmqf3wWBB3-_olw"
+									},
+									{
+										"key": "content-type",
+										"value": "application/json"
+									},
+									{
+										"key": "cookie",
+										"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..I11v3ksuaeYJAbD4.ES5ScR0pfedTLZ9BBQesipby5UG4sGDNoBAm2_61-b-9-aXGs7CxHPHnP5NFKZbV8C2wWh2wFuV_GUArKrdctE2Hc1N47-i3g95VrrGLPJcv-EzZYLLB_qc5sWB1uUTjpAeJk1rQJhB4uDuUZ-OSC8YfRFoV-yAILeD_rt07xk7ZoLqEQqp9Oa4ZoPR4rbjmW3IeVPnEkfeuyKxhEbhYfNAEESVw8nkRPX0dXyAzpm2Tle_xwMGPv8WVLtV33OhQoqvQCGK_Xekx5vY1vaE1cuv9fNUbceHylmpMt1DA1oCZiyZiyQGPGwZh6rRjVYSNAL3cYw1MrKW28MB6wYA9Z91m7PLRcBIqqcvRzACeoWQvKB43EMzQ-2MxhxUBrpVdXZlWU1qiob8l74FavZyOcooYAUjH1We4oU2KujNZK_9DrCdcNjXkijbIJUHd80-WhnHKe7jbG6uazR9fWEgKw7a8GDtD3qnwX-g9DV6pw9frAiPGKNqKShCCd-UUX22vj8gHYLRWvZPu-DnIeHBoAN-zeP_00ZfrTlOUR4QowhbrH_YMDHgyAfgieih2o1vAtt6e3MoyxpRzuYA1LbdMppN366H5HCgwAu8XoW1FyZEGKK5GBNI6mZiEokR_lJGz5j9wKTyT36t2VPQk16FRkiZkPcJNt-4.wqSmS2D7D5sl6pb2694vdQ"
+									},
+									{
+										"key": "origin",
+										"value": "https://eryzhov.stages.c2g.pw"
+									},
+									{
+										"key": "referer",
+										"value": "https://eryzhov.stages.c2g.pw/markEditor"
+									},
+									{
+										"key": "sec-ch-ua",
+										"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+									},
+									{
+										"key": "sec-ch-ua-mobile",
+										"value": "?0"
+									},
+									{
+										"key": "sec-ch-ua-platform",
+										"value": "\"macOS\""
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+									},
+									{
+										"key": "x-session-id",
+										"value": "56c8252a-7215-4734-8d3b-86ebcff6d754"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"uuid\": \"\",\n    \"title\": \"A4-M1-N1-Temp\",\n    \"value\": 0,\n    \"physicalQuantity\": \"TEMPERATURE\",\n    \"physicalQuantityUnit\": \"m_s\",\n    \"markedAsObservable\": true,\n    \"deadZone\": {\n        \"type\": \"RELATIVE\",\n        \"value\": 0\n    },\n    \"thresholds\": {\n        \"upper\": [\n            {\n                \"value\": 0,\n                \"severity\": \"urgent\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 37,\n                \"severity\": \"low\",\n                \"isActive\": true\n            }\n        ],\n        \"lower\": [\n            {\n                \"value\": 0,\n                \"severity\": \"low\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 0,\n                \"severity\": \"high\",\n                \"isActive\": false\n            },\n            {\n                \"value\": 35,\n                \"severity\": \"urgent\",\n                \"isActive\": true\n            }\n        ]\n    },\n    \"operatingRange\": {\n        \"upper\": {\n            \"value\": 42,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 30,\n            \"isActive\": true\n        }\n    },\n    \"displayRange\": {\n        \"upper\": {\n            \"value\": 42,\n            \"isActive\": true\n        },\n        \"lower\": {\n            \"value\": 28,\n            \"isActive\": true\n        }\n    },\n    \"unitId\": 0,\n    \"namedValues\": []\n}"
+								},
+								"url": {
+									"raw": "https://eryzhov.stages.c2g.pw/frontapi/v1/unitnode-trees/8/nodes/30/ltags",
+									"protocol": "https",
+									"host": [
+										"eryzhov",
+										"stages",
+										"c2g",
+										"pw"
+									],
+									"path": [
+										"frontapi",
+										"v1",
+										"unitnode-trees",
+										"8",
+										"nodes",
+										"30",
+										"ltags"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 25 Apr 2023 15:01:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "725"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15768000 ; includeSubDomains"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": {\n        \"uuid\": \"4a371476-8a94-40d0-b51f-3333349ec9c0\",\n        \"title\": \"A4-M1-N1-Temp\",\n        \"physicalQuantity\": \"TEMPERATURE\",\n        \"physicalQuantityUnit\": \"C\",\n        \"deadZone\": {\n            \"type\": \"RELATIVE\",\n            \"value\": 0\n        },\n        \"thresholds\": {\n            \"upper\": [\n                {\n                    \"value\": 37,\n                    \"severity\": \"low\",\n                    \"isActive\": true\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                }\n            ],\n            \"lower\": [\n                {\n                    \"value\": 35,\n                    \"severity\": \"urgent\",\n                    \"isActive\": true\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                },\n                {\n                    \"value\": 0,\n                    \"severity\": \"\",\n                    \"isActive\": false\n                }\n            ]\n        },\n        \"namedValues\": [],\n        \"operatingRange\": {\n            \"upper\": {\n                \"value\": 42,\n                \"isActive\": true\n            },\n            \"lower\": {\n                \"value\": 30,\n                \"isActive\": true\n            }\n        },\n        \"displayRange\": {\n            \"upper\": {\n                \"value\": 42,\n                \"isActive\": true\n            },\n            \"lower\": {\n                \"value\": 28,\n                \"isActive\": true\n            }\n        },\n        \"unitId\": 30,\n        \"markedAsObservable\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Tag",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authority",
+								"value": "eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODI1MTQxNDQsImlhdCI6MTY4MjUxMzg0NCwiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.3HMDTW2PhoNdmITCCcOHktu2gVky8zI5VdwuAt3wP38mZcC4-X5cxqRQQvPiGV99aKhxLiIaVpMotXdxmUGhtQ"
+							},
+							{
+								"key": "cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..rYIHJKvaXwQn0FpF.vSJhTg-UDgfDTiG5OTVYwz4UWSJvsTYMC_P5n9eNameQLf2X0bmjYYFV8hwDmQWDbZjQULQx-fVw5s1JE7ZZUDsmNvKCEXX4besxQPOHjCzIIPsNJ3_S4rB4E0PxpBylTLwrCEx9PsKF_Ydw0sAVPU2a4nV2607YPjwnvqY1K1IIivJbulZ4sqwLeLRHP03Q77RUHV3YRnEvHK_XYomqZj1SyRI5BWZzn0r3lEhk2NPPvAwLDcVUPL4SRm_WYz-xQv7BPbvzJgwDD865GM57cejO3G9aqINSOVgT0oc-TqH-c66ttDSbBZ3Pq1QLtwDkZdNG7756XOrTOlK2UGDxEoActJsWQbIOSrV6F99IsPAjar7XCW-AiB6Ow7Rh5y5Gfa7Eq6-9_ByKnVMTXFgPefoW7Ri374fYZTDDMEDKw5jvkkTAbwubhChJ76IojSyi-qmB4UH4UrmAgbpkBeVEgI-7zDlFsLp4AbBvTbjYHMSQCQmGlxhztRQgUc4ZUY-6skoD6LwIZNmukYmDv2YDSN9ZyBf-cnEFLsbNsNJzYw4g5EMDBDemWMGEGDQGsfU82O-qUgsZGBERnCmsFv-7TcGzXb7nnbYsOWsWvL3Lgqzew4ZQq1IIwymQgVKj1MNqa-txsyul-fWO_q3AGCwwl5RdmqBHtiY.D25BgS5nQRSK8pzIZYL-5A"
+							},
+							{
+								"key": "origin",
+								"value": "https://eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "referer",
+								"value": "https://eryzhov.stages.c2g.pw/markEditor"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754"
+							}
+						],
+						"url": {
+							"raw": "https://eryzhov.stages.c2g.pw/frontapi/v1/unitnode-trees/14/nodes/72/ltags/5e667d13-dced-43ee-9cd9-42d5abdbe956",
+							"protocol": "https",
+							"host": [
+								"eryzhov",
+								"stages",
+								"c2g",
+								"pw"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees",
+								"14",
+								"nodes",
+								"72",
+								"ltags",
+								"5e667d13-dced-43ee-9cd9-42d5abdbe956"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Tags",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authority",
+								"value": "eryzhov.stages.c2g.pw"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "ru"
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODI1MTQxNDQsImlhdCI6MTY4MjUxMzg0NCwiY2xpZW50X2lkIjoxLCJjbGllbnRfdHlwZSI6InVzZXIifQ.3HMDTW2PhoNdmITCCcOHktu2gVky8zI5VdwuAt3wP38mZcC4-X5cxqRQQvPiGV99aKhxLiIaVpMotXdxmUGhtQ"
+							},
+							{
+								"key": "cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..rYIHJKvaXwQn0FpF.vSJhTg-UDgfDTiG5OTVYwz4UWSJvsTYMC_P5n9eNameQLf2X0bmjYYFV8hwDmQWDbZjQULQx-fVw5s1JE7ZZUDsmNvKCEXX4besxQPOHjCzIIPsNJ3_S4rB4E0PxpBylTLwrCEx9PsKF_Ydw0sAVPU2a4nV2607YPjwnvqY1K1IIivJbulZ4sqwLeLRHP03Q77RUHV3YRnEvHK_XYomqZj1SyRI5BWZzn0r3lEhk2NPPvAwLDcVUPL4SRm_WYz-xQv7BPbvzJgwDD865GM57cejO3G9aqINSOVgT0oc-TqH-c66ttDSbBZ3Pq1QLtwDkZdNG7756XOrTOlK2UGDxEoActJsWQbIOSrV6F99IsPAjar7XCW-AiB6Ow7Rh5y5Gfa7Eq6-9_ByKnVMTXFgPefoW7Ri374fYZTDDMEDKw5jvkkTAbwubhChJ76IojSyi-qmB4UH4UrmAgbpkBeVEgI-7zDlFsLp4AbBvTbjYHMSQCQmGlxhztRQgUc4ZUY-6skoD6LwIZNmukYmDv2YDSN9ZyBf-cnEFLsbNsNJzYw4g5EMDBDemWMGEGDQGsfU82O-qUgsZGBERnCmsFv-7TcGzXb7nnbYsOWsWvL3Lgqzew4ZQq1IIwymQgVKj1MNqa-txsyul-fWO_q3AGCwwl5RdmqBHtiY.D25BgS5nQRSK8pzIZYL-5A"
+							},
+							{
+								"key": "referer",
+								"value": "https://eryzhov.stages.c2g.pw/markEditor"
+							},
+							{
+								"key": "sec-ch-ua",
+								"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\""
+							},
+							{
+								"key": "sec-ch-ua-mobile",
+								"value": "?0"
+							},
+							{
+								"key": "sec-ch-ua-platform",
+								"value": "\"macOS\""
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754"
+							}
+						],
+						"url": {
+							"raw": "https://eryzhov.stages.c2g.pw/frontapi/v1/unitnode-trees/34/nodes/72/ltags",
+							"protocol": "https",
+							"host": [
+								"eryzhov",
+								"stages",
+								"c2g",
+								"pw"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unitnode-trees",
+								"34",
+								"nodes",
+								"72",
+								"ltags"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "unit-marks",
+			"item": [
+				{
+					"name": "Create Unit Mark",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..wLGrNtDDngcQTwzD.bfeL5Kd0mKtER-gO3DdLTMMpVoh9LOiN5fCjWq0NkvP7waaViIfnV58jnvR_87eXbvyd-2vHPwW43YMWcsLx-Ga24FNsFeBLSNjweffd2dytp1zeTN_hPp-c4Idoq2xKgk6KOmihevRU6rl2qfzJjFYxmk-6Dkialo5tLd75ezD_EJBPkH0rqnnczE0doLEKBQTPI2pQFXVQwCJMt5m6FrezB6tZ57JEMj2IUrPhTYryJwvO87qnHz2UniKuClqBIjvANMWCJgaHW1PnxCaCcLPCT-78PtATnzHoGgK7baGPOxnz81sNqcTjaofJI3SAbFpUc5VDjgwKqhQ5EMbDRlZfRDZXs-eYHRe1inXv5R3hkXiS90W8DHwqbZkzWlJJzWKrgANSjjMqKfB3XFVSU-HWApF5RncmrlpidAnwtBjd7Exm1J7CJwMpe_OkQt-kc2y5wao0KRRZ-I0p6rjVpSb0xotlsbtlc39NWNDGheDXg03BxfI0BwkT8OSxfy2tdDy8cscnGTnIgJnEhw_NizMTWxDwg-s0hPFfKiHWiZ4vOF_pJOFSZpDUVJuiM22iB3wayD9IL6C-oWq24rCfXnPNDyK__UInGt_4cBAS9KuNbh-jcWPbf8xvTFI1zFF0hYmAWOCUlSujavOea0UwZ9LhRhQi6Ds.ahGWWGIgWctt-LvCzaOPFQ",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"m3-1\",\"typeId\":5}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unit-marks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unit-marks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Unit Marks",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..wLGrNtDDngcQTwzD.bfeL5Kd0mKtER-gO3DdLTMMpVoh9LOiN5fCjWq0NkvP7waaViIfnV58jnvR_87eXbvyd-2vHPwW43YMWcsLx-Ga24FNsFeBLSNjweffd2dytp1zeTN_hPp-c4Idoq2xKgk6KOmihevRU6rl2qfzJjFYxmk-6Dkialo5tLd75ezD_EJBPkH0rqnnczE0doLEKBQTPI2pQFXVQwCJMt5m6FrezB6tZ57JEMj2IUrPhTYryJwvO87qnHz2UniKuClqBIjvANMWCJgaHW1PnxCaCcLPCT-78PtATnzHoGgK7baGPOxnz81sNqcTjaofJI3SAbFpUc5VDjgwKqhQ5EMbDRlZfRDZXs-eYHRe1inXv5R3hkXiS90W8DHwqbZkzWlJJzWKrgANSjjMqKfB3XFVSU-HWApF5RncmrlpidAnwtBjd7Exm1J7CJwMpe_OkQt-kc2y5wao0KRRZ-I0p6rjVpSb0xotlsbtlc39NWNDGheDXg03BxfI0BwkT8OSxfy2tdDy8cscnGTnIgJnEhw_NizMTWxDwg-s0hPFfKiHWiZ4vOF_pJOFSZpDUVJuiM22iB3wayD9IL6C-oWq24rCfXnPNDyK__UInGt_4cBAS9KuNbh-jcWPbf8xvTFI1zFF0hYmAWOCUlSujavOea0UwZ9LhRhQi6Ds.ahGWWGIgWctt-LvCzaOPFQ",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"m3-1\",\"typeId\":5}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unit-marks",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unit-marks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Unit Mark",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..wLGrNtDDngcQTwzD.bfeL5Kd0mKtER-gO3DdLTMMpVoh9LOiN5fCjWq0NkvP7waaViIfnV58jnvR_87eXbvyd-2vHPwW43YMWcsLx-Ga24FNsFeBLSNjweffd2dytp1zeTN_hPp-c4Idoq2xKgk6KOmihevRU6rl2qfzJjFYxmk-6Dkialo5tLd75ezD_EJBPkH0rqnnczE0doLEKBQTPI2pQFXVQwCJMt5m6FrezB6tZ57JEMj2IUrPhTYryJwvO87qnHz2UniKuClqBIjvANMWCJgaHW1PnxCaCcLPCT-78PtATnzHoGgK7baGPOxnz81sNqcTjaofJI3SAbFpUc5VDjgwKqhQ5EMbDRlZfRDZXs-eYHRe1inXv5R3hkXiS90W8DHwqbZkzWlJJzWKrgANSjjMqKfB3XFVSU-HWApF5RncmrlpidAnwtBjd7Exm1J7CJwMpe_OkQt-kc2y5wao0KRRZ-I0p6rjVpSb0xotlsbtlc39NWNDGheDXg03BxfI0BwkT8OSxfy2tdDy8cscnGTnIgJnEhw_NizMTWxDwg-s0hPFfKiHWiZ4vOF_pJOFSZpDUVJuiM22iB3wayD9IL6C-oWq24rCfXnPNDyK__UInGt_4cBAS9KuNbh-jcWPbf8xvTFI1zFF0hYmAWOCUlSujavOea0UwZ9LhRhQi6Ds.ahGWWGIgWctt-LvCzaOPFQ",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unit-marks/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unit-marks",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Unit Mark",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"let auth_host = pm.environment.get('auth_host');",
+									"let test_login = pm.environment.get('test_login');",
+									"let test_password = pm.environment.get('test_password');",
+									"let token = ''",
+									"",
+									"const authRequest = {",
+									"    url: `${auth_host}/api/v1/authorize`,",
+									"    method: 'POST',",
+									"    header: { 'content-type': 'application/json' },",
+									"    body: {",
+									"        mode: 'raw',",
+									"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+									"    }",
+									"",
+									"};",
+									"pm.sendRequest(authRequest, (error, response) => {",
+									"    let response_body = response.json()",
+									"    console.log(error ? error : response_body);",
+									"    let token = response_body.access_token",
+									"    console.log(`Token: ${token}`)",
+									"});",
+									"",
+									"console.log(`Token: ${token}`)",
+									"pm.globals.set('auth_token', token);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "ru",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{auth_token}}"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=http%3A%2F%2Feryzhov.stages.c2g.pw%2FmarkEditor; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..wLGrNtDDngcQTwzD.bfeL5Kd0mKtER-gO3DdLTMMpVoh9LOiN5fCjWq0NkvP7waaViIfnV58jnvR_87eXbvyd-2vHPwW43YMWcsLx-Ga24FNsFeBLSNjweffd2dytp1zeTN_hPp-c4Idoq2xKgk6KOmihevRU6rl2qfzJjFYxmk-6Dkialo5tLd75ezD_EJBPkH0rqnnczE0doLEKBQTPI2pQFXVQwCJMt5m6FrezB6tZ57JEMj2IUrPhTYryJwvO87qnHz2UniKuClqBIjvANMWCJgaHW1PnxCaCcLPCT-78PtATnzHoGgK7baGPOxnz81sNqcTjaofJI3SAbFpUc5VDjgwKqhQ5EMbDRlZfRDZXs-eYHRe1inXv5R3hkXiS90W8DHwqbZkzWlJJzWKrgANSjjMqKfB3XFVSU-HWApF5RncmrlpidAnwtBjd7Exm1J7CJwMpe_OkQt-kc2y5wao0KRRZ-I0p6rjVpSb0xotlsbtlc39NWNDGheDXg03BxfI0BwkT8OSxfy2tdDy8cscnGTnIgJnEhw_NizMTWxDwg-s0hPFfKiHWiZ4vOF_pJOFSZpDUVJuiM22iB3wayD9IL6C-oWq24rCfXnPNDyK__UInGt_4cBAS9KuNbh-jcWPbf8xvTFI1zFF0hYmAWOCUlSujavOea0UwZ9LhRhQi6Ds.ahGWWGIgWctt-LvCzaOPFQ",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "http://eryzhov.stages.c2g.pw",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "http://eryzhov.stages.c2g.pw/markEditor",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "x-session-id",
+								"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"M1-A2\"}"
+						},
+						"url": {
+							"raw": "{{host}}/frontapi/v1/unit-marks/8",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"frontapi",
+								"v1",
+								"unit-marks",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "physicalQuantity",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"",
+							"let auth_host = pm.environment.get('auth_host');",
+							"let test_login = pm.environment.get('test_login');",
+							"let test_password = pm.environment.get('test_password');",
+							"let token = ''",
+							"",
+							"const authRequest = {",
+							"    url: `${auth_host}/api/v1/authorize`,",
+							"    method: 'POST',",
+							"    header: { 'content-type': 'application/json' },",
+							"    body: {",
+							"        mode: 'raw',",
+							"        raw: JSON.stringify({'client_ident': test_login, 'password': test_password})",
+							"    }",
+							"",
+							"};",
+							"pm.sendRequest(authRequest, (error, response) => {",
+							"    let response_body = response.json()",
+							"    console.log(error ? error : response_body);",
+							"    let token = response_body.access_token",
+							"    console.log(`Token: ${token}`)",
+							"});",
+							"",
+							"console.log(`Token: ${token}`)",
+							"pm.globals.set('auth_token', token);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authority",
+						"value": "eryzhov.stages.c2g.pw",
+						"disabled": true
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "accept-language",
+						"value": "ru",
+						"disabled": true
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer {{auth_token}}"
+					},
+					{
+						"key": "cookie",
+						"value": "next-auth.csrf-token=823d953442a2e161418dcec16d93be10cfe22d071be1a91dd5aee50fa10f76fd%7Cfe314b125570bc3ee76a4b31fca385b34006fb93123db5e3569e54f7bd056c8d; next-auth.callback-url=https%3A%2F%2Feryzhov.stages.c2g.pw%2Fsettings%2Forg-tree; next-auth.session-token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..iAOSVkDIL9ZTP5tF.DZMzLi99XtpcGo74lIbS02pJs6tFMqwvU8owW_RZCpkdu9tJOAqtNSgLHj4EHX_CzILv9HP7pGML4LrGzImSl_3B4hfow5_Isqnju57JwXZAkWFS4gsqLXAo0hD1CEz4kWZ7piGOgeVNCwiIikHI0lNbB33TyGUelT6W1-Y0qfB_LwVShn5RvMMu3_R0kKGvlsoAqTXY7wkLssPUNE8XYUTB1dkeaSNwtuXUbdShI9SSbmM8PCuea7MKK95RqrHfhi_TaDxDbWiwq2kBHc5QVVaqCmlICxL8BZnETSweit2XOprBQWj-wWxSprBVmwuqzXqz--ZLvGBqPo4r6_YNMtdEFIQ1o4gIRX3yOcSR3AHl6FqLK2X6g1lqZ3itfrgCw6Cpb6wUisTuIIARprluhXrpwhwz4apz8aJUNbcd4MPRCz0iiYa9wRCVOcnEyScYwvieNiY-RgBm5Urt1F22zVa-ppq7Ax_EktqfUBqjR-9BJU22THEXk1mtlk0Q5GabGzt6Wzy4zxdyrp0V9YSNCAzwn1Jz4Oa0zxZeOCEadBqOzhhIvRY-WGiXvIwJkg7WLqLRRsHWwmlkUDgKwl3O9oRtgI_ywAEGS-JENmwo3RY8O8lTFs3Nq4zzoe8-5pgCL4FCBn1fBVBnUYCsn9dMir6YtjZUX0k.tv6fZ73UNy6p8b58F1o5RA",
+						"disabled": true
+					},
+					{
+						"key": "referer",
+						"value": "https://eryzhov.stages.c2g.pw/markEditor",
+						"disabled": true
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\"",
+						"disabled": true
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0",
+						"disabled": true
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\"",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin",
+						"disabled": true
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36",
+						"disabled": true
+					},
+					{
+						"key": "x-session-id",
+						"value": "56c8252a-7215-4734-8d3b-86ebcff6d754",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/mock/physicalQuantity",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"mock",
+						"physicalQuantity"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

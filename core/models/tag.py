@@ -11,12 +11,20 @@ class ParamItem(BaseModel):
     value: int
     isActive: bool
 
+    @property
+    def str_value(self) -> str:
+        return str(self.value)
+
 
 class ThresholdItem(BaseModel):
     value: int
     # TODO: rewrite with enum
     severity: str
     isActive: bool
+
+    @property
+    def str_value(self) -> str:
+        return str(self.value)
 
 
 class Thresholds(BaseModel):
@@ -53,6 +61,23 @@ class Tag(BaseModel):
     @property
     def body_for_creation(self) -> dict:
         return self.dict(exclude_unset=True)
+
+    @property
+    def upper_active_thresholds(self) -> list[ThresholdItem]:
+        return [t for t in self.thresholds.upper if t.isActive]
+
+    @property
+    def lower_active_thresholds(self) -> list[ThresholdItem]:
+        return [t for t in self.thresholds.lower if t.isActive]
+
+
+    @property
+    def first_upper_active(self) -> ThresholdItem:
+        return next((t for t in self.thresholds.upper if t.isActive), None)
+
+    @property
+    def first_lower_active(self) -> ThresholdItem:
+        return next((t for t in self.thresholds.lower if t.isActive), None)
 
 
 class CreateTagResponse(BaseModel):

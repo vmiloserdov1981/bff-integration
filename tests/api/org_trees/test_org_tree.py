@@ -144,7 +144,7 @@ class TestOrgTree:
         with allure.step('Добавить в шаблон тег'):
             create_tag_resp = bff_client.create_tag(root_id=root_unit_node.id, node_id=unit_child.id,
                                                     json=temp_tag.body_for_creation)
-            # TODO: Create Bug for BFF. Status must be 204 (CREATED)
+            # TODO: Create Bug for BFF. Status must be 201 (CREATED)
             check_response_status(given=create_tag_resp.status_code, expected=HTTPStatus.OK)
             tag = CreateTagResponse(**create_tag_resp.json()).tag
 

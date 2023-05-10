@@ -11,8 +11,8 @@ class TestLogin:
 
     @allure.id('266')
     @allure.title('Пользователь может войти в систему')
-    def test_correct_login(self, default_user: User, auth_page: AuthPage):
-        with allure.step('Открыта страницу логина'):
+    def test_correct_login_ui(self, default_user: User, auth_page: AuthPage):
+        with allure.step('Открыта страница логина'):
             auth_page.check_specific_locators()
 
         with allure.step('Ввести логин пользователя'):

@@ -35,9 +35,17 @@ class RootElem(BaseModel):
 class RootNodeResponse(BaseModel):
     result: RootElem
 
+    @property
+    def node(self):
+        return self.result.node
+
 
 class NodeResponse(BaseModel):
     result: CommonNode
+
+    @property
+    def node(self):
+        return self.result
 
 
 class RootNodesList(BaseModel):
