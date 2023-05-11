@@ -26,6 +26,5 @@ physical_quantity = {
     'TIME': 'Время',
     'VOLUME': 'Объем',
     'DENSITY': 'Плотность',
-    'VOLUME_FLOW_RATE': 'Объёмный расход'
+    'VOLUME_FLOW_RATE': 'Объёмный расход',
 }
-

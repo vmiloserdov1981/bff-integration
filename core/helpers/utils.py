@@ -1,6 +1,5 @@
 import time
 
-
 M = int(1e6)
 
 

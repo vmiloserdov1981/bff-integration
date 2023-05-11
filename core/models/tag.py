@@ -1,5 +1,6 @@
-from pydantic import BaseModel, conlist
 from typing import Optional
+
+from pydantic import BaseModel, conlist
 
 
 class DeadZone(BaseModel):
@@ -70,7 +71,6 @@ class Tag(BaseModel):
     def lower_active_thresholds(self) -> list[ThresholdItem]:
         return [t for t in self.thresholds.lower if t.isActive]
 
-
     @property
     def first_upper_active(self) -> ThresholdItem:
         return next((t for t in self.thresholds.upper if t.isActive), None)
@@ -90,7 +90,7 @@ class CreateTagResponse(BaseModel):
 
 class TagsResponse(BaseModel):
     result: conlist(Tag, min_items=0)
-    
+
     @property
     def list(self) -> list[Tag]:
         return self.result

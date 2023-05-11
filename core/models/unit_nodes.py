@@ -1,5 +1,6 @@
-from pydantic import BaseModel
 from typing import Optional
+
+from pydantic import BaseModel
 
 
 class UnitNode(BaseModel):
@@ -16,16 +17,10 @@ class UnitNode(BaseModel):
     @property
     def body_for_creation(self) -> dict:
         return self.dict(exclude_unset=True)
-    
+
     @property
     def body_for_root_creation(self) -> dict:
-        return {
-            'rootNode': {
-                'name': self.name,
-                'markId': self.markId,
-                'typeId': self.typeId
-            }
-        }
+        return {'rootNode': {'name': self.name, 'markId': self.markId, 'typeId': self.typeId}}
 
 
 class CreateUnitNodeResponse(BaseModel):

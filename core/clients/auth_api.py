@@ -2,6 +2,7 @@ import requests
 
 
 class AuthApiClient:
+
     def __init__(self, host: str):
         self.host = host
         self.authorize_path = '/api/v1/authorize'

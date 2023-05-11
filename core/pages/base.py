@@ -1,10 +1,12 @@
-from playwright.sync_api import Page, Response, Locator
 from typing import Callable
+
+from playwright.sync_api import Locator, Page, Response
 
 from core.consts.timeouts import Timeouts
 
 
 class BasePage:
+
     def __init__(self, page: Page, page_url: str):
         self.page_url: str = page_url
         self.page: Page = page

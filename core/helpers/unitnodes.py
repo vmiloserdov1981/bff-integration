@@ -2,8 +2,8 @@ from http import HTTPStatus
 
 from core.clients.bff_api import BffApiClient
 from core.helpers.utils import check_response_status
-from core.models.unit_nodes import UnitNodesResponse
 from core.models.tag import TagsResponse
+from core.models.unit_nodes import UnitNodesResponse
 
 
 def del_tags_for_node(client: BffApiClient, root_id: int, node_id: int):
@@ -31,4 +31,3 @@ def delete_unitnode(client: BffApiClient, root_id: int, node_id: int):
             delete_unitnode(client=client, root_id=root_id, node_id=child_id)
     del_node_resp = client.delete_unit_node(root_id=root_id, node_id=node_id)
     check_response_status(given=del_node_resp.status_code, expected=HTTPStatus.NO_CONTENT)
-

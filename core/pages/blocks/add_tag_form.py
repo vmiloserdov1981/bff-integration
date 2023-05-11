@@ -1,14 +1,16 @@
-from playwright.sync_api import Locator, expect, Page
 from typing import Callable
+
+from playwright.sync_api import Locator, Page, expect
 
 from core.consts.timeouts import Timeouts
 from core.helpers.ui_utils import dropdown_select
-from core.models.tag import Tag
 from core.models.physical_quantity import physical_quantity
+from core.models.tag import Tag
 from core.pages.base import BasePage
 
 
 class AddTagForm(BasePage):
+
     def __init__(self, page: BasePage):
         super().__init__(page=page.page, page_url=page.page_url)
 
@@ -202,7 +204,8 @@ class AddTagForm(BasePage):
 
     def fill_form(self, tag: Tag):
         self.title.type(tag.title)
-        dropdown_select(page=self, dropdown=self.physical_quantity_dropdown,
+        dropdown_select(page=self,
+                        dropdown=self.physical_quantity_dropdown,
                         item=self.dropdown_item_by_name(name=physical_quantity.get(tag.physicalQuantity)))
         # if tag.markedAsObservable:
         #     self.observable_checkbox.click()

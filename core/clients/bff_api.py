@@ -1,10 +1,10 @@
 import requests
 
-
 from core.clients.base import BaseApiClient
 
 
 class BffApiClient(BaseApiClient):
+
     def __init__(self, host: str, token: str = ''):
         super().__init__(token=token)
         self.host = host
@@ -91,9 +91,10 @@ class BffApiClient(BaseApiClient):
         return self.get(url=f'{self.host}/{self.unitnode_tree_children_path(node_id=root_id)}', params=params)
 
     def delete_unit_node(self, root_id: int, node_id: int, json: dict = None) -> requests.Response:
-        return self.delete(url=f'{self.host}/{self.unitnode_tree_node_path(root_id=root_id, node_id=node_id)}',
-                           json=json)
-        # return self.delete(url=f'{self.base_url}/unitnode-trees/{root_id}/nodes/{node_id}', json=json)
+        return self.delete(
+            url=f'{self.host}/{self.unitnode_tree_node_path(root_id=root_id, node_id=node_id)}',
+            json=json,
+        )
 
     # Unit marks
 

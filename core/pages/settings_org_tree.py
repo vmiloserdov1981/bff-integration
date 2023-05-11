@@ -1,6 +1,6 @@
-from playwright.sync_api import Page, Locator, expect
-
 from typing import Callable
+
+from playwright.sync_api import Locator, Page, expect
 
 from core.clients.bff_api import BffApiClient
 from core.consts.timeouts import Timeouts
@@ -10,7 +10,6 @@ from core.pages.blocks.org_node_edit_form import OrgNodeEditForm
 
 
 class SettingsOrgTree(BasePage):
-
     PATH = 'settings/org-tree'
 
     def __init__(self, page: Page, host: str):
@@ -48,15 +47,15 @@ class SettingsOrgTree(BasePage):
         return bff_client.org_trees_path()
 
     def create_node_request_lambda(self, bff_client: BffApiClient) -> Callable:
-        return lambda r: self.create_node_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST'
+        return (lambda r: self.create_node_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST')
 
     @staticmethod
     def create_child_node_request_url(root_id: int, bff_client: BffApiClient) -> str:
         return bff_client.org_tree_child_nodes_path(node_id=root_id)
 
     def create_child_node_request_lambda(self, root_id: int, bff_client: BffApiClient) -> Callable:
-        return lambda r: self.create_child_node_request_url(root_id=root_id, bff_client=bff_client) in r.url \
-                         and r.request.method == 'POST'
+        return (lambda r: self.create_child_node_request_url(root_id=root_id, bff_client=bff_client) in r.url and r.
+                request.method == 'POST')
 
     def node_locator_by_name(self, name: str) -> Locator:
         return self.locator(f'//div[@class[contains(.,"ColumnItem_clickable")]][span[contains(.,"{name}")]]')
@@ -67,7 +66,7 @@ class SettingsOrgTree(BasePage):
 
     @property
     def node_menu_button_locator(self) -> Locator:
-        return self.locator(f'//button[@class[contains(.,"ColumnItem_ActionIcon")]]')
+        return self.locator('//button[@class[contains(.,"ColumnItem_ActionIcon")]]')
 
     @property
     def edit_node_menu_option(self):

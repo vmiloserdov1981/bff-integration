@@ -1,14 +1,14 @@
-import pytest
-
 from http import HTTPStatus
+
+import pytest
 
 from core.clients.auth_api import AuthApiClient
 from core.clients.bff_api import BffApiClient
 from core.helpers.unitnodes import delete_unitnode
 from core.helpers.utils import check_response_status
-from core.models.user import User
+from core.models.tag import DeadZone, ParamItem, ParamRange, Tag, ThresholdItem, Thresholds
 from core.models.unit_marks import UnitMarksListResponse
-from core.models.tag import Tag, DeadZone, Thresholds, ThresholdItem, ParamRange, ParamItem
+from core.models.user import User
 
 
 @pytest.fixture(scope='session')
@@ -67,24 +67,18 @@ def temp_tag() -> Tag:
             upper=[
                 ThresholdItem(value=0, severity='urgent', isActive=False),
                 ThresholdItem(value=0, severity='high', isActive=False),
-                ThresholdItem(value=37, severity='low', isActive=True)
+                ThresholdItem(value=37, severity='low', isActive=True),
             ],
             lower=[
                 ThresholdItem(value=35, severity='urgent', isActive=True),
                 ThresholdItem(value=0, severity='high', isActive=False),
-                ThresholdItem(value=0, severity='low', isActive=False)
-            ]
+                ThresholdItem(value=0, severity='low', isActive=False),
+            ],
         ),
-        operatingRange=ParamRange(
-            upper=ParamItem(value=42, isActive=True),
-            lower=ParamItem(value=30, isActive=True)
-        ),
-        displayRange=ParamRange(
-            upper=ParamItem(value=44, isActive=True),
-            lower=ParamItem(value=28, isActive=True)
-        ),
+        operatingRange=ParamRange(upper=ParamItem(value=42, isActive=True), lower=ParamItem(value=30, isActive=True)),
+        displayRange=ParamRange(upper=ParamItem(value=44, isActive=True), lower=ParamItem(value=28, isActive=True)),
         unitId=0,
-        namedValues=[]
+        namedValues=[],
     )
 
 

@@ -1,19 +1,18 @@
-from playwright.sync_api import Page, Locator, expect
 import typing
 
+from playwright.sync_api import Locator, Page, expect
 
 from core.consts.timeouts import Timeouts
 from core.pages.base import BasePage
 
 
 class AuthPage(BasePage):
-
     PATH = 'auth/signin'
 
     def __init__(self, page: Page, host: str):
         super().__init__(page=page, page_url=f'{host}/{self.PATH}')
         self.title: str = 'Smart Diagnostics'
-    
+
     @property
     def logo(self) -> Locator:
         return self.locator('div[class*="AuthLayout_LogoContainer"]>span[class*="Icon_icon"]>svg')

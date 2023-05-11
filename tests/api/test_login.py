@@ -1,6 +1,6 @@
-import allure
-
 from http import HTTPStatus
+
+import allure
 
 from core.clients.auth_api import AuthApiClient
 from core.helpers.utils import check_response_status
@@ -26,4 +26,3 @@ class TestLogin:
         with allure.step('Token is not empty'):
             # TODO: Use model
             assert response_json.get('access_token'), 'Access token should not be empty'
-
