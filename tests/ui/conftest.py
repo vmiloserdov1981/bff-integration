@@ -1,7 +1,7 @@
+from http import HTTPStatus
+
 import allure
 import pytest
-
-from http import HTTPStatus
 from playwright.sync_api import Page
 
 from core.consts.timeouts import Timeouts
@@ -62,7 +62,7 @@ def logged_page(default_user: User, auth_page: AuthPage) -> Page:
             response = response_info.value
 
     with allure.step('Session request returns 200'):
-        assert response.status == HTTPStatus.OK, f'Expecting status OK, got response.status instead'
+        assert (response.status == HTTPStatus.OK), f'Expecting status OK, got {response.status} instead'
 
     return auth_page.page
 

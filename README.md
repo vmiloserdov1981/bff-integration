@@ -59,6 +59,11 @@ poetry install
 poetry run playwright install
 ```
 
+### Pre-commit setup
+```shell
+pre-commit install
+```
+
 ## Run tests
 
 ### API
@@ -80,3 +85,9 @@ poetry run playwright install
 ```
 (also supported 'firefox' and 'webkit' options for browser)
 
+## Pre-commit hooks
+
+In order to check code before commit run
+```shell
+pre-commit
+```

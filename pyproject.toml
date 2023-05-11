@@ -21,7 +21,18 @@ pythonpath = [
 
 [tool.poetry.group.dev.dependencies]
 plantuml = "^0.3.0"
+pre-commit = "3.3.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+yapf = "^0.33.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+line_length = 120
+profile = 'black'
+
+[tool.yapf]
+column_limit = 120

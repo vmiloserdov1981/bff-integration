@@ -1,33 +1,43 @@
-import allure
-
 from http import HTTPStatus
+
+import allure
 
 from core.clients.bff_api import BffApiClient
 from core.helpers.utils import check_response_status
-from core.models.tag import Tag, TagsResponse, CreateTagResponse
-from core.models.unit_type import UnitType, CreateUnitTypeResponse
-from core.models.unit_marks import UnitMark, CreateUnitMarkResponse
-from core.models.unit_nodes import UnitNode, CreateRootUnitNodeResponse, CreateUnitNodeResponse
-from core.models.org_nodes import (RootNodeResponse, RootElem, CommonNode, RootNodesList, NodeResponse,
-                                   TreeResponseResult, AttachNodeResponse)
+from core.models.org_nodes import (
+    AttachNodeResponse,
+    CommonNode,
+    NodeResponse,
+    RootElem,
+    RootNodeResponse,
+    RootNodesList,
+    TreeResponseResult,
+)
+from core.models.tag import CreateTagResponse, Tag, TagsResponse
+from core.models.unit_marks import CreateUnitMarkResponse, UnitMark
+from core.models.unit_nodes import CreateRootUnitNodeResponse, CreateUnitNodeResponse, UnitNode
+from core.models.unit_type import CreateUnitTypeResponse, UnitType
 
 
 class TestOrgTree:
 
     @allure.id('')
     @allure.title('Орг. структура')
-    def test_org_tree(self, bff_client: BffApiClient,
-                      root_node_scaffold: RootElem,
-                      updated_root_node_scaffold: RootElem,
-                      second_root_node_scaffold: RootElem,
-                      child_node_name: str,
-                      unit_type_scaffold: UnitType,
-                      unit_type_ids_to_delete: list,
-                      root_node_ids_to_delete: list,
-                      unit_mark_name: str,
-                      root_unit_node_name: str,
-                      child_unit_node_name: str,
-                      temp_tag: Tag):
+    def test_org_tree(
+        self,
+        bff_client: BffApiClient,
+        root_node_scaffold: RootElem,
+        updated_root_node_scaffold: RootElem,
+        second_root_node_scaffold: RootElem,
+        child_node_name: str,
+        unit_type_scaffold: UnitType,
+        unit_type_ids_to_delete: list,
+        root_node_ids_to_delete: list,
+        unit_mark_name: str,
+        root_unit_node_name: str,
+        child_unit_node_name: str,
+        temp_tag: Tag,
+    ):
         # 'добавили новое дерево orgElements'
         # POST frontapi/v1/org-trees; POST frontapi/v1/org-trees/{rootId}/nodes;
         with allure.step('Создать корневой элемент дерева'):
@@ -59,8 +69,8 @@ class TestOrgTree:
 
         with allure.step('В ответе пришло изменённое название'):
             patched = NodeResponse(**patch_response.json()).result
-            assert patched.name == updated_root_node_scaffold.node.name, \
-                'Received node name is not equal to expected one'
+            assert (
+                patched.name == updated_root_node_scaffold.node.name), 'Received node name is not equal to expected one'
 
         with allure.step('Получить список корневых узлов деревьев'):
             second_list_response = bff_client.list_org_trees()
@@ -70,8 +80,8 @@ class TestOrgTree:
             second_list_dict = second_list_response.json()
             nodes = RootNodesList(**second_list_dict).result
             expected_node = next((n for n in nodes if n.rootElem.id == elem_one_id), None)
-            assert expected_node.node.name == updated_root_node_scaffold.node.name, \
-                'The node name in list is not equal to expected one'
+            assert (expected_node.node.name == updated_root_node_scaffold.node.name
+                    ), 'The node name in list is not equal to expected one'
 
         # 'добавили второе дерево orgElements'
         with allure.step('Создать второй корневой узел'):
@@ -104,7 +114,7 @@ class TestOrgTree:
 
         with allure.step('Созданный дочерний узел присутствует в списке'):
             tree_dict = tree_list_resp.json()
-            tree = TreeResponseResult(**tree_dict)
+            assert tree_dict
 
         # 'добавили unitNodesTemplate'
         # POST frontapi/v1/unit-types; POST frontapi/v1/unit-marks;
@@ -118,15 +128,17 @@ class TestOrgTree:
             unit_type_ids_to_delete.append(type_id)
 
         with allure.step('Создать марку оборудования'):
-            create_mark_resp = bff_client.create_unit_mark(json=UnitMark(name=unit_mark_name,
-                                                                         typeId=type_id).dict(exclude_unset=True))
+            create_mark_resp = bff_client.create_unit_mark(json=UnitMark(name=unit_mark_name, typeId=type_id).dict(
+                exclude_unset=True))
             check_response_status(given=create_mark_resp.status_code, expected=HTTPStatus.CREATED)
             mark = CreateUnitMarkResponse(**create_mark_resp.json()).unit_mark
             mark_id = mark.id  # 8, type_id: 3 (Type_of Device)
             # Parent ID 14 (Creating Mark involves creating root Unit Node)
 
         with allure.step('Создать корневой узел юнита для созданной марки'):
-            root_node_scaffold = UnitNode(name=root_unit_node_name, typeId=type_id, markId=mark_id,
+            root_node_scaffold = UnitNode(name=root_unit_node_name,
+                                          typeId=type_id,
+                                          markId=mark_id,
                                           unitKind='UNIT_NODE')
             create_root_unit_resp = bff_client.create_root_unit_node(json=root_node_scaffold.body_for_root_creation)
             check_response_status(given=create_root_unit_resp.status_code, expected=HTTPStatus.CREATED)
@@ -142,7 +154,8 @@ class TestOrgTree:
         # 'добавиди туда теги и доп данные к ним'
         # PUT frontapi/v1/unitnode-trees/{treeRootId}/nodes/{unitNodeId}/ltags/{ltagUuid};
         with allure.step('Добавить в шаблон тег'):
-            create_tag_resp = bff_client.create_tag(root_id=root_unit_node.id, node_id=unit_child.id,
+            create_tag_resp = bff_client.create_tag(root_id=root_unit_node.id,
+                                                    node_id=unit_child.id,
                                                     json=temp_tag.body_for_creation)
             # TODO: Create Bug for BFF. Status must be 201 (CREATED)
             check_response_status(given=create_tag_resp.status_code, expected=HTTPStatus.OK)
@@ -160,7 +173,8 @@ class TestOrgTree:
         # 'прилинковали узлы к unitNodes;'
         # POST /org-trees/{orgTreeRootId}/nodes/{nodeId}/bindunit
         with allure.step('Добавить к дочернему узлу дерева шаблон оборудования'):
-            attachable_node = CommonNode(name='Attached Unit', parentId=elem_two_id,
+            attachable_node = CommonNode(name='Attached Unit',
+                                         parentId=elem_two_id,
                                          unitNodeTreeRootIdRef=root_unit_node.id)
             link_template_resp = bff_client.attach_unit_node(parent_id=elem_two_id,
                                                              json=attachable_node.body_for_creation)
@@ -168,9 +182,8 @@ class TestOrgTree:
             # TODO: Check for 'status' and 'visibility' PATCH requests
             linked_node = AttachNodeResponse(**link_template_resp.json()).node
 
-
         # 'получили дерево с узлами. радуемся'
-        with allure.step('Получить список дочерних узлов второго дерева'):
+        with allure.step('Получить список дочерних узлов второго  дерева'):
             second_tree_list_resp = bff_client.list_nodes_by_root_id(root_id=elem_two_id)
             check_response_status(given=second_tree_list_resp.status_code, expected=HTTPStatus.OK)
             second_nodes = TreeResponseResult(**second_tree_list_resp.json()).nodes
@@ -178,4 +191,3 @@ class TestOrgTree:
         with allure.step('В списке присутствует добавленный шаблон оборудования'):
             expected_node = second_nodes.get(str(linked_node.id))
             assert expected_node, f'Tree should contain expected node {linked_node.id}'
-

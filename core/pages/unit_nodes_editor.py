@@ -1,6 +1,6 @@
-from playwright.sync_api import Page, Locator, expect
-
 from typing import Callable
+
+from playwright.sync_api import Locator, Page, expect
 
 from core.clients.bff_api import BffApiClient
 from core.consts.timeouts import Timeouts
@@ -10,7 +10,6 @@ from core.pages.blocks.add_tag_form import AddTagForm
 
 
 class UnitNodesEditor(BasePage):
-
     PATH = 'markEditor'
 
     def __init__(self, page: Page, host: str):
@@ -73,8 +72,8 @@ class UnitNodesEditor(BasePage):
         return bff_client.unit_types_path()
 
     def create_unit_type_request_lambda(self, bff_client: BffApiClient) -> Callable:
-        return lambda r: self.create_unit_type_url(bff_client=bff_client) in r.url and r.request.method == 'POST'
-    
+        return (lambda r: self.create_unit_type_url(bff_client=bff_client) in r.url and r.request.method == 'POST')
+
     @property
     def new_node_name_input(self) -> Locator:
         return self.locator('input[maxlength="80"][class*="EmptyNodeRow_Input"]')
@@ -95,35 +94,34 @@ class UnitNodesEditor(BasePage):
         return bff_client.tags_path(root_id=root_id, node_id=node_id)
 
     def create_tag_request_lambda(self, bff_client: BffApiClient, root_id: int, node_id: int) -> Callable:
-        return lambda r: self.create_tag_request_url(bff_client=bff_client, root_id=root_id, node_id=node_id) in \
-                         r.url and r.request.method == 'POST'
+        return (lambda r: self.create_tag_request_url(bff_client=bff_client, root_id=root_id, node_id=node_id) in r.url
+                and r.request.method == 'POST')
 
     @staticmethod
     def create_unit_node_request_url(bff_client: BffApiClient, node_id: int) -> str:
         return bff_client.unitnode_tree_children_path(node_id=node_id)
 
     def create_unit_node_request_lambda(self, bff_client: BffApiClient, node_id: int) -> Callable:
-        return lambda r: self.create_unit_node_request_url(bff_client=bff_client,
-                                                           node_id=node_id) in r.url and r.request.method == 'POST'
+        return (lambda r: self.create_unit_node_request_url(bff_client=bff_client, node_id=node_id) in r.url and r.
+                request.method == 'POST')
 
     @staticmethod
     def create_mark_request_url(bff_client: BffApiClient) -> str:
         return bff_client.unit_marks_path()
 
     def create_mark_request_lambda(self, bff_client: BffApiClient) -> Callable:
-        return lambda r: self.create_mark_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST'
+        return (lambda r: self.create_mark_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST')
 
     @staticmethod
     def create_root_unit_node_request_url(bff_client: BffApiClient) -> str:
         return bff_client.unitnode_trees_path()
 
     def create_root_unit_node_request_lambda(self, bff_client: BffApiClient) -> Callable:
-        return lambda r: self.create_root_unit_node_request_url(bff_client=bff_client) in \
-                         r.url and r.request.method == 'POST'
+        url = self.create_root_unit_node_request_url(bff_client=bff_client)
+        return lambda r: url in r.url and r.request.method == 'POST'
 
     def check_specific_locators(self) -> None:
         expect(self.header_title).to_be_visible(timeout=Timeouts.DEFAULT)
-        # expect(self.table_title).to_be_visible(timeout=Timeouts.DEFAULT)
         expect(self.add_node_button).to_be_visible(timeout=Timeouts.DEFAULT)
         expect(self.unit_dropdown).to_be_visible(timeout=Timeouts.DEFAULT)
         expect(self.mark_dropdown).to_be_visible(timeout=Timeouts.DEFAULT)

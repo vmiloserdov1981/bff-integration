@@ -7,8 +7,5 @@ class User(BaseModel):
 
     @property
     def body_for_authorize(self) -> dict:
-        body = {
-            'client_ident': self.login,
-            'password': self.password
-        }
+        body = {'client_ident': self.login, 'password': self.password}
         return body

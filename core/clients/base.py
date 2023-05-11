@@ -2,6 +2,7 @@ import requests
 
 
 class BaseApiClient:
+
     def __init__(self, token: str = ''):
         self.auth = f'Bearer {token}'
 

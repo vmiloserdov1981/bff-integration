@@ -1,6 +1,6 @@
-import allure
-
 from http import HTTPStatus
+
+import allure
 
 from core.consts.timeouts import Timeouts
 from core.models.user import User
@@ -27,8 +27,4 @@ class TestLogin:
                 response = response_info.value
 
         with allure.step('Session request returns 200'):
-            assert response.status == HTTPStatus.OK, f'Expecting status OK, got response.status instead'
-
-
-
-
+            assert (response.status == HTTPStatus.OK), f'Expecting status OK, got {response.status} instead'
