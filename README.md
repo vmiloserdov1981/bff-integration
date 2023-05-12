@@ -9,11 +9,16 @@ brew update
 brew install pyenv
 brew install pyenv-virtualenv
 ```
+#### Windows
+```powershell
+Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
 
+```
 #### Links
 
 * [homebrew](https://brew.sh/)
 * [Pyenv](https://github.com/pyenv/pyenv#homebrew-in-macos)
+* [pyenv-win](https://github.com/pyenv-win/pyenv-win#quick-start)
 
 ### Install python
 
@@ -61,7 +66,7 @@ poetry run playwright install
 
 ### Pre-commit setup
 ```shell
-pre-commit install
+poetry run pre-commit install
 ```
 
 ## Run tests
@@ -89,5 +94,5 @@ pre-commit install
 
 In order to check code before commit run
 ```shell
-pre-commit
+poetry run pre-commit
 ```
