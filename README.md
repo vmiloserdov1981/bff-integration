@@ -4,6 +4,7 @@
 
 ### Install Pyenv
 
+#### MacOS
 ```shell
 brew update
 brew install pyenv
@@ -12,12 +13,15 @@ brew install pyenv-virtualenv
 #### Windows
 ```powershell
 Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
-
+```
+#### Linux
+```shell
+curl https://pyenv.run | bash
 ```
 #### Links
-
 * [homebrew](https://brew.sh/)
-* [Pyenv](https://github.com/pyenv/pyenv#homebrew-in-macos)
+* [pyenv](https://github.com/pyenv/pyenv)
+* [pyenv in MacOS](https://github.com/pyenv/pyenv#homebrew-in-macos)
 * [pyenv-win](https://github.com/pyenv-win/pyenv-win#quick-start)
 
 ### Install python
@@ -30,8 +34,6 @@ pyenv install -l
 ```shell
 pyenv install 3.11.3
 ```
-#### Links
-* [pyenv](https://github.com/pyenv/pyenv)
 
 ### Create environment
 
@@ -44,7 +46,6 @@ pyenv virtualenv testenv
 
 ```shell
 pyenv activate testenv
-
 ```
 
 ### Install Poetry
