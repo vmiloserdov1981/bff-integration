@@ -18,16 +18,41 @@ class AuthPage(BasePage):
         return self.locator('div[class*="AuthLayout_LogoContainer"]>span[class*="Icon_icon"]>svg')
 
     @property
-    def login_form_title(self) -> Locator:
-        return self.locator('//div[@class[contains(.,"SignInForm_Header")]]/span[contains(.,"Войдите в свой аккаунт")]')
-
-    @property
     def login_input(self) -> Locator:
         return self.locator('//label[span[contains(.,"Логин")]]/div/input')
 
     @property
+    def form_title_text(self) -> Locator:
+        return self.locator('//div[@class[contains(.,"SignInForm_Header")]]/span[contains(.,"Войдите в свой аккаунт")]')
+
+    @property
+    def form_subtitle_text(self) -> Locator:
+        return self.locator(
+            '//div[@class[contains(.,"SignInForm_Header")]]/span[contains(.,"Введите ваш логин и пароль для входа")]')
+
+    @property
+    def login_input_title(self) -> Locator:
+        return self.locator('//label[@class[contains(.,"Input_Input")]]/span[contains(.,"Логин")]')
+
+    @property
     def password_input(self) -> Locator:
         return self.locator('//label[span[contains(.,"Пароль")]]/div/input')
+
+    @property
+    def password_input_title(self) -> Locator:
+        return self.locator('//label[@class[contains(.,"Input_Input")]]/span[contains(.,"Пароль")]')
+
+    @property
+    def password_input_hidden(self) -> Locator:
+        return self.locator('//label[span[contains(.,"Пароль")]]/div/input[@type[contains(., "password")]]')
+
+    @property
+    def password_input_visible(self) -> Locator:
+        return self.locator('//label[span[contains(.,"Пароль")]]/div/input[@type[contains(., "text")]]')
+
+    @property
+    def password_display_button(self) -> Locator:
+        return self.locator('//button[@class[contains(.,"IconButton")]]')
 
     @property
     def submit_button(self) -> Locator:
@@ -46,3 +71,35 @@ class AuthPage(BasePage):
         expect(self.logo).to_be_visible(timeout=Timeouts.DEFAULT)
         expect(self.login_input).to_be_visible(timeout=Timeouts.DEFAULT)
         expect(self.password_input).to_be_visible(timeout=Timeouts.DEFAULT)
+
+    def check_form_title_text(self):
+        expect(self.form_title_text).to_be_visible()
+
+    def check_form_subtitle_text(self):
+        expect(self.form_subtitle_text).to_be_visible()
+
+    def check_login_input_title(self):
+        expect(self.login_input_title).to_be_visible()
+
+    def check_password_input_title(self):
+        expect(self.password_input_title).to_be_visible()
+
+    def check_submit_button_text(self):
+        expect(self.submit_button).to_be_visible()
+
+    def check_disabled_submit_button(self):
+        expect(self.submit_button).to_be_disabled()
+
+    def check_enabled_submit_button(self):
+        expect(self.submit_button).to_be_enabled()
+
+    def check_login_input_value(self, login: str):
+        expect(self.login_input).to_have_value(login)
+
+    def check_password_input_value_hidden(self, password: str):
+        expect(self.password_input).to_have_value(password)
+        expect(self.password_input_hidden).to_be_visible()
+
+    def check_password_input_value_visible(self, password: str):
+        expect(self.password_input).to_have_value(password)
+        expect(self.password_input_visible).to_be_visible()
