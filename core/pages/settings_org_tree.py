@@ -47,7 +47,7 @@ class SettingsOrgTree(BasePage):
         return bff_client.org_trees_path()
 
     def create_node_request_lambda(self, bff_client: BffApiClient) -> Callable:
-        return (lambda r: self.create_node_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST')
+        return lambda r: self.create_node_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST'
 
     @staticmethod
     def create_child_node_request_url(root_id: int, bff_client: BffApiClient) -> str:
