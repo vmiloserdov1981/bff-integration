@@ -7,6 +7,7 @@ from core.consts.timeouts import Timeouts
 from core.pages.base import BasePage
 from core.pages.blocks.org_node_create_form import OrgNodeCreateForm
 from core.pages.blocks.org_node_edit_form import OrgNodeEditForm
+from core.pages.blocks.sidebar import SidebarMenu
 
 
 class SettingsOrgTree(BasePage):
@@ -17,6 +18,7 @@ class SettingsOrgTree(BasePage):
         self.title: str = 'Smart Diagnostics'
         self.create_form = OrgNodeCreateForm(page=self)
         self.edit_form = OrgNodeEditForm(page=self)
+        self.sidebar = SidebarMenu(page=self)
 
     @property
     def add_tree_button(self) -> Locator:
