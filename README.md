@@ -97,3 +97,43 @@ In order to check code before commit run
 ```shell
 poetry run pre-commit
 ```
+
+## Run tests in Docker
+
+#### It's necessary to have GitLab access token with Docker container registry permissions to run tests from prepared container
+[Get token instruction](https://gitlab.c2g.pw/help/user/profile/personal_access_tokens)
+
+### Login GitLab Docker registry
+
+```bash
+docker login registry.c2g.pw -u <username> -p <access token>
+```
+
+### Renew framework container in Docker registry
+⚠️ATTENTION! LONG PROCEDURE! PERFORM ONLY IN CASE OF BIG CHANGES IN FRAMEWORK! ⚠️
+
+Build image
+```shell
+docker build -t registry.c2g.pw/qa/bff-integration -f Dockerfile.main .
+```
+
+Push image
+```shell
+docker push registry.c2g.pw/qa/bff-integration
+```
+### Run tests locally
+
+Build for tests
+```shell
+docker build . -f Dockerfile.tests -t testrun
+```
+
+Run UI tests
+```shell
+docker run -it testrun poetry run pytest tests/ui
+```
+
+Run API tests
+```shell
+docker run -it testrun poetry run pytest tests/api
+```

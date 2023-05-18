@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Integration tests for BFF API and front"
 authors = ["Igor Trudonoshin i.trudonoshin@ctrl2go.solutions"]
 readme = "README.md"
-packages = [{include = "bff_integration"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
