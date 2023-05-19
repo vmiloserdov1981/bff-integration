@@ -63,6 +63,14 @@ class AuthPage(BasePage):
         return '/api/auth/session'
 
     @property
+    def credentials_request_path(self) -> str:
+        return 'api/auth/callback/credentials?'
+
+    @property
+    def session_credentials_lambda(self) -> typing.Callable:
+        return lambda r: self.credentials_request_path in r.url and r.request.method == 'POST'
+
+    @property
     def session_response_lambda(self) -> typing.Callable:
         return lambda r: self.session_request_path in r.url and r.request.method == 'GET'
 

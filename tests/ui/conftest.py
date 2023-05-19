@@ -54,7 +54,7 @@ def logged_page(default_user: User, auth_page: AuthPage) -> Page:
         auth_page.login_input.type(text=default_user.login, timeout=Timeouts.DEFAULT)
 
     with allure.step('Ввести пароль пользователя'):
-        auth_page.password_input.type(text=default_user.login, timeout=Timeouts.DEFAULT)
+        auth_page.password_input.type(text=default_user.password, timeout=Timeouts.DEFAULT)
 
     with allure.step('Нажать на кнопку Войти'):
         with auth_page.expect_response(auth_page.session_response_lambda) as response_info:
