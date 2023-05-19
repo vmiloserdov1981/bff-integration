@@ -33,6 +33,12 @@ def default_user() -> User:
     return user
 
 
+@pytest.fixture(scope='session')
+def unknown_user() -> User:
+    user = User(login='unknown', password='user')
+    return user
+
+
 @pytest.fixture(scope='function')
 def auth_client(auth_host: str) -> AuthApiClient:
     client = AuthApiClient(host=auth_host)
