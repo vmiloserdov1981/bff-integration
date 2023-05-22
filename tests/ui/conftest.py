@@ -11,15 +11,14 @@ from core.pages.settings_org_tree import SettingsOrgTree
 
 
 @pytest.fixture(scope='session')
-# TODO: move to env variable
-def front_protocol() -> str:
-    return 'http'
+def front_protocol(stand_params: dict) -> str:
+    protocol = stand_params.get('protocol')
+    return protocol
 
 
 @pytest.fixture(scope='session')
-# TODO: move to env variable
-def front_host() -> str:
-    return 'eryzhov.stages.c2g.pw'
+def front_host(env_name: str) -> str:
+    return f'{env_name}.stages.c2g.pw'
 
 
 @pytest.fixture(scope='session')

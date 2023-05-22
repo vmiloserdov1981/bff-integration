@@ -1,20 +1,33 @@
+import os
 from http import HTTPStatus
 
 import pytest
+from dotenv import load_dotenv
 
 from core.clients.auth_api import AuthApiClient
 from core.clients.bff_api import BffApiClient
 from core.helpers.unitnodes import delete_unitnode
-from core.helpers.utils import check_response_status
+from core.helpers.utils import check_response_status, get_env_variable_as_dict
 from core.models.tag import DeadZone, ParamItem, ParamRange, Tag, ThresholdItem, Thresholds
 from core.models.unit_marks import UnitMarksListResponse
 from core.models.user import User
 
 
+def pytest_sessionstart():
+    load_dotenv()
+
+
 @pytest.fixture(scope='session')
-def env_name() -> str:
-    # TODO: Move to env variables
-    return 'eryzhov'
+def stand_params() -> dict:
+    stand = get_env_variable_as_dict(name='STAND_PARAMS')
+    assert stand, 'STAND_PARAMS variable is not present'
+    return stand
+
+
+@pytest.fixture(scope='session')
+def env_name(stand_params: dict) -> str:
+    name = stand_params.get('creator_name')
+    return name
 
 
 @pytest.fixture(scope='session')
@@ -28,8 +41,10 @@ def bff_host(env_name: str) -> str:
 
 
 @pytest.fixture(scope='session')
-def default_user() -> User:
-    user = User(login='testuser', password='testuser')
+def default_user(stand_params: dict) -> User:
+    login = stand_params.get('user')
+    password = stand_params.get('password')
+    user = User(login=login, password=password)
     return user
 
 
@@ -100,7 +115,6 @@ def root_node_ids_to_delete(bff_client: BffApiClient) -> list:
     assert not undeleted, f'Nodes {undeleted} was not deleted'
 
 
-# TODO: Create helpers for operations with entities (node deletion for example)
 @pytest.fixture(scope='function')
 def unit_type_ids_to_delete(bff_client: BffApiClient) -> list:
     type_ids = []
