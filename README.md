@@ -72,6 +72,11 @@ poetry run pre-commit install
 
 ## Run tests
 
+Copy env.example to .env
+```shell
+cp env.example .env
+```
+
 ### API
 
 ```shell
