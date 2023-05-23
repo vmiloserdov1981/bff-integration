@@ -1,7 +1,5 @@
 from typing import Callable
-
-from playwright.sync_api import Locator, Page, Response
-
+from playwright.sync_api import Locator, Page, expect
 from core.consts.timeouts import Timeouts
 
 
@@ -26,3 +24,6 @@ class BasePage:
         self.wait_for_changes()
         item.click()
         self.wait_for_changes()
+
+    def check_locator_visibility(self, locator: Locator, timeout: float = Timeouts.DEFAULT) -> None:
+        expect(locator).to_be_visible(timeout=timeout)
