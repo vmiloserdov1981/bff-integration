@@ -1,9 +1,8 @@
 from http import HTTPStatus
-
 import allure
 import pytest
 from playwright.sync_api import Page
-
+from core.helpers.utils import uniq_timestamp
 from core.consts.timeouts import Timeouts
 from core.models.user import User
 from core.pages.auth import AuthPage
@@ -71,3 +70,8 @@ def orgs_page(logged_page: Page, front_url: str) -> SettingsOrgTree:
     settings_page = SettingsOrgTree(page=logged_page, host=front_url)
     settings_page.visit()
     return settings_page
+
+
+@pytest.fixture(scope='function')
+def company_name() -> str:
+    return f'at_company{uniq_timestamp()}'

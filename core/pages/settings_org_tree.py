@@ -1,7 +1,5 @@
 from typing import Callable
-
 from playwright.sync_api import Locator, Page, expect
-
 from core.clients.bff_api import BffApiClient
 from core.consts.timeouts import Timeouts
 from core.pages.base import BasePage
@@ -85,6 +83,10 @@ class SettingsOrgTree(BasePage):
     @property
     def level_3_column(self):
         return self.locator('//div[@class[contains(.,"Column_Column")]]//span[contains(.,"Уровень 3")]')
+
+    @property
+    def last_company_in_list(self):
+        return self.locator('[class*="ColumnItem_Container"]>span:nth-child(1)')
 
     def check_specific_locators(self) -> None:
         expect(self.page).to_have_title(self.title)
