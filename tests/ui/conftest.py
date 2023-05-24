@@ -7,6 +7,7 @@ from playwright.sync_api import Page
 from core.consts.timeouts import Timeouts
 from core.models.user import User
 from core.pages.auth import AuthPage
+from core.pages.rules import RulesPage
 from core.pages.settings_org_tree import SettingsOrgTree
 
 
@@ -71,3 +72,10 @@ def orgs_page(logged_page: Page, front_url: str) -> SettingsOrgTree:
     settings_page = SettingsOrgTree(page=logged_page, host=front_url)
     settings_page.visit()
     return settings_page
+
+
+@pytest.fixture(scope='function')
+def rules_page(logged_page: Page, front_url: str) -> RulesPage:
+    rules_page = RulesPage(page=logged_page, host=front_url)
+    rules_page.visit()
+    return rules_page
