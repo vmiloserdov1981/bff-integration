@@ -1,8 +1,10 @@
-from http import HTTPStatus
 import allure
 import pytest
+from http import HTTPStatus
 from playwright.sync_api import Page
-from core.helpers.utils import uniq_timestamp
+from core.models.org_nodes import RootElem, RootNodeResponse, CommonNode
+from core.clients.bff_api import BffApiClient
+from core.helpers.utils import uniq_timestamp, check_response_status
 from core.consts.timeouts import Timeouts
 from core.models.user import User
 from core.pages.auth import AuthPage
@@ -75,3 +77,18 @@ def orgs_page(logged_page: Page, front_url: str) -> SettingsOrgTree:
 @pytest.fixture(scope='function')
 def company_name() -> str:
     return f'at_company{uniq_timestamp()}'
+
+
+@pytest.fixture(scope='function')
+def root_node_scaffold(company_name: str) -> RootElem:
+    node = CommonNode(name=company_name)
+    return RootElem(rootElem=node)
+
+
+@pytest.fixture(scope='function')  # TODO: add deletion entity if not deleted by teardown
+def create_company_api(bff_client: BffApiClient, company_name: str, root_node_scaffold: RootElem):
+    request = bff_client.create_root_node(json=root_node_scaffold.body_for_creation)
+    check_response_status(given=request.status_code, expected=HTTPStatus.CREATED)
+    cr_resp_body = request.json()
+    root_model_one = RootNodeResponse(**cr_resp_body).result
+    return root_model_one
