@@ -5,10 +5,10 @@ from core.consts.timeouts import Timeouts
 from core.models.org_nodes import CommonNode, RootNodeResponse
 from core.helpers.utils import check_response_status
 from core.clients.bff_api import BffApiClient
+from playwright.sync_api import expect
 
 
-class TestCreateCompany:
-
+class TestCRUDCompany:
     @allure.id('129')
     @allure.title('Создание компании')
     def test_create_company(
@@ -18,7 +18,6 @@ class TestCreateCompany:
             root_node_ids_to_delete: list,
             bff_client: BffApiClient,
     ):
-
         with allure.step('Проверка наличия локаторов'):
             orgs_page.check_specific_locators()
 
@@ -48,6 +47,31 @@ class TestCreateCompany:
             root_node_ids_to_delete.append(root_node.id)
 
         with allure.step('Проверка созданной компании'):
-            orgs_page.wait(timeout=Timeouts.COMPANY_CREATION)  # FIXME: replace for event waiting
-            assert orgs_page.last_company_in_list.last.text_content() == company_name, \
-                f'Name of last elem in company list is not equal created one'
+            expect(orgs_page.node_menu_button_place_locator_by_name(company_name),
+                   f'Company {company_name} is missing on the page').to_have_count(1)
+
+    @allure.id('133')
+    @allure.title('Удаление компании')
+    def test_delete_company(
+            self,
+            bff_client: BffApiClient,
+            orgs_page: SettingsOrgTree,
+            company_name: str,
+            create_company_api,
+    ):
+        with allure.step('Удаление компании'):
+            orgs_page.node_menu_button_place_locator_by_name(company_name).click()
+            orgs_page.check_specific_locators()
+            orgs_page.delete_node_menu_option.click()
+            with orgs_page.expect_response(orgs_page.delete_node_request_lambda(
+                    node_id=create_company_api.rootElem.id,
+                    root_id=create_company_api.rootElem.id,
+                    bff_client=bff_client)
+            ) as resp_info:
+                orgs_page.delete_form.confirm_button.click()
+                response = resp_info.value
+                check_response_status(given=response.status, expected=HTTPStatus.NO_CONTENT)
+
+        with allure.step('Проверка удаления компании'):
+            expect(orgs_page.node_menu_button_place_locator_by_name(company_name),
+                   f'Company {company_name} is still present on the page').to_have_count(0)

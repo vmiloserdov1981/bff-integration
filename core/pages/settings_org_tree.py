@@ -5,6 +5,7 @@ from core.consts.timeouts import Timeouts
 from core.pages.base import BasePage
 from core.pages.blocks.org_node_create_form import OrgNodeCreateForm
 from core.pages.blocks.org_node_edit_form import OrgNodeEditForm
+from core.pages.blocks.org_node_delete_form import OrgNodeDeleteForm
 from core.pages.blocks.sidebar import SidebarMenu
 
 
@@ -16,6 +17,7 @@ class SettingsOrgTree(BasePage):
         self.title: str = 'Smart Diagnostics'
         self.create_form = OrgNodeCreateForm(page=self)
         self.edit_form = OrgNodeEditForm(page=self)
+        self.delete_form = OrgNodeDeleteForm(page=self)
         self.sidebar = SidebarMenu(page=self)
 
     @property
@@ -46,8 +48,19 @@ class SettingsOrgTree(BasePage):
     def create_node_request_url(bff_client: BffApiClient) -> str:
         return bff_client.org_trees_path()
 
+    @staticmethod
+    def delete_node_request_url(node_id: int, root_id: int, bff_client: BffApiClient) -> str:
+        return bff_client.org_tree_node_path(node_id=node_id, root_id=root_id)
+
     def create_node_request_lambda(self, bff_client: BffApiClient) -> Callable:
         return lambda r: self.create_node_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST'
+
+    def delete_node_request_lambda(self, node_id: int, root_id: int, bff_client: BffApiClient) -> Callable:
+        return lambda r: self.delete_node_request_url(
+            node_id=node_id,
+            root_id=root_id,
+            bff_client=bff_client
+        ) in r.url and r.request.method == 'DELETE'
 
     @staticmethod
     def create_child_node_request_url(root_id: int, bff_client: BffApiClient) -> str:
@@ -73,6 +86,10 @@ class SettingsOrgTree(BasePage):
         return self.locator('//span[@class[contains(.,"MenuItem_md")]]/span[contains(.,"Редактировать")]')
 
     @property
+    def delete_node_menu_option(self) -> Locator:
+        return self.locator('//span[@class[contains(.,"MenuItem_md")]]/span[contains(.,"Удалить")]')
+
+    @property
     def level_1_column(self):
         return self.locator('//div[@class[contains(.,"Column_Column")]]//span[contains(.,"Уровень 1")]')
 
@@ -83,10 +100,6 @@ class SettingsOrgTree(BasePage):
     @property
     def level_3_column(self):
         return self.locator('//div[@class[contains(.,"Column_Column")]]//span[contains(.,"Уровень 3")]')
-
-    @property
-    def last_company_in_list(self):
-        return self.locator('[class*="ColumnItem_Container"]>span:nth-child(1)')
 
     def check_specific_locators(self) -> None:
         expect(self.page).to_have_title(self.title)
