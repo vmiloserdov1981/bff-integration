@@ -71,7 +71,7 @@ class SettingsOrgTree(BasePage):
                 request.method == 'POST')
 
     def node_locator_by_name(self, name: str) -> Locator:
-        return self.locator(f'//div[@class[contains(.,"ColumnItem_clickable")]][span[contains(.,"{name}")]]')
+        return self.locator(f'//div[@class[contains(.,"Column_Content")]]/div[span[contains(.,"{name}")]]')
 
     def node_menu_button_place_locator_by_name(self, name: str) -> Locator:
         return self.locator(f'//div[@class[contains(.,"ColumnItem_clickable")]][span[contains(.,"{name}")]]'

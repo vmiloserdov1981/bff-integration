@@ -57,15 +57,15 @@ class TestCRUDCompany:
             bff_client: BffApiClient,
             orgs_page: SettingsOrgTree,
             company_name: str,
-            create_company_api,
+            create_company,
     ):
         with allure.step('Удаление компании'):
             orgs_page.node_menu_button_place_locator_by_name(company_name).click()
             orgs_page.check_specific_locators()
             orgs_page.delete_node_menu_option.click()
             with orgs_page.expect_response(orgs_page.delete_node_request_lambda(
-                    node_id=create_company_api.rootElem.id,
-                    root_id=create_company_api.rootElem.id,
+                    node_id=create_company.rootElem.id,
+                    root_id=create_company.rootElem.id,
                     bff_client=bff_client)
             ) as resp_info:
                 orgs_page.delete_form.confirm_button.click()
