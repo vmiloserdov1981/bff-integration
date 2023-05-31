@@ -1,5 +1,3 @@
 FROM registry.c2g.pw/qa/bff-integration
-
 COPY . .
-COPY .env .env
 RUN poetry install

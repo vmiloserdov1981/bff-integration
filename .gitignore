@@ -9,3 +9,6 @@ __pycache__/
 *.ipr
 .env
 venv
+darwin/
+win32/
+report/
