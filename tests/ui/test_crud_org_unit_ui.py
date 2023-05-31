@@ -6,21 +6,21 @@ from core.models.unit_nodes import UnitNode
 from core.models.unit_type import UnitType
 from core.pages.settings_org_tree import SettingsOrgTree
 from core.pages.unit_nodes_editor import UnitNodesEditor
-from core.models.org_nodes import RootElem
+from core.models.org_nodes import RootElem, AttachedNode
 from core.helpers.utils import check_response_status
 from playwright.sync_api import expect
 
 
-class TestAddUnit:
+class TestCRUDOrgUnit:
     @allure.id('137')
-    @allure.title('Добавление агрегата')
+    @allure.title('Добавление агрегата к узлу')
     def test_add_unit(
         self,
         bff_client: BffApiClient,
         create_company: RootElem,
         existing_unit_type: UnitType,
         create_unit_mark: UnitMark,
-        create_root_node_unit_api: UnitNode,
+        create_root_node_unit: UnitNode,
         orgs_page: SettingsOrgTree,
         unit_page: UnitNodesEditor,
         unit_name: str,
@@ -28,7 +28,7 @@ class TestAddUnit:
         company_name: str,
         root_node_ids_to_delete: list,
         unit_type_ids_to_delete: list,
-        existing_company: None
+        existing_company: None,
     ):
         with allure.step('Тестовая компания присутствует в списке компаний'):
             expect(
@@ -75,6 +75,62 @@ class TestAddUnit:
                 )
 
         with allure.step('Добавленный агрегат присутствует на странице'):
+            expect(orgs_page.node_locator_by_name(name=unit_name)).to_have_count(1)
+
+    @allure.id('206')
+    @allure.title('Удаление агрегата из узла')
+    def test_remove_unit(
+        self,
+        bff_client: BffApiClient,
+        create_company: RootElem,
+        existing_unit_type: UnitType,
+        create_unit_mark: UnitMark,
+        create_root_node_unit: UnitNode,
+        link_unit_to_node: AttachedNode,
+        orgs_page: SettingsOrgTree,
+        unit_page: UnitNodesEditor,
+        unit_name: str,
+        unit_type_name: str,
+        company_name: str,
+        root_node_ids_to_delete: list,
+        unit_type_ids_to_delete: list,
+        existing_company: None,
+    ):
+        with allure.step('Тестовая компания присутствует в списке компаний'):
             expect(
-                orgs_page.node_locator_by_name(name=unit_name)
+                orgs_page.node_locator_by_name(name=company_name),
+                f'Locator by name {company_name} not found',
             ).to_have_count(1)
+
+        with allure.step('Нажать на название созданной компании'):
+            orgs_page.node_locator_by_name(name=company_name).click()
+
+        with allure.step('Агрегат присутствует на странице'):
+            expect(
+                orgs_page.node_locator_by_name(name=unit_name),
+                f'Locator by name {unit_name} not found',
+            ).to_have_count(1)
+
+        with allure.step('Зайти в меню опций агрегата'):
+            orgs_page.unit_menu_button_locator(name=unit_name).click()
+
+        with allure.step('Нажать на кнопку удаления'):
+            orgs_page.delete_node_menu_option.click()
+            with orgs_page.expect_response(
+                orgs_page.delete_node_request_lambda(
+                    node_id=link_unit_to_node.id,
+                    root_id=create_company.rootElem.id,
+                    bff_client=bff_client,
+                )
+            ) as resp_info:
+                with allure.step('Открыто модальное окно подтверждения удаления'):
+                    orgs_page.delete_form.check_specific_locators()
+                with allure.step('Нажать на кнопку подтверждения удаления'):
+                    orgs_page.delete_form.confirm_button.click()
+                response = resp_info.value
+                check_response_status(
+                    given=response.status, expected=HTTPStatus.NO_CONTENT
+                )
+
+        with allure.step('Агрегат отсутствует на странице'):
+            expect(orgs_page.node_locator_by_name(name=unit_name)).to_have_count(0)
