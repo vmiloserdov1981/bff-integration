@@ -2,7 +2,7 @@ import allure
 import pytest
 from http import HTTPStatus
 from playwright.sync_api import Page
-from core.models.org_nodes import RootElem, RootNodeResponse, CommonNode
+from core.models.org_nodes import RootElem, RootNodeResponse, CommonNode, AttachNodeResponse, AttachedNode
 from core.clients.bff_api import BffApiClient
 from core.helpers.utils import uniq_timestamp, check_response_status
 from core.consts.timeouts import Timeouts
@@ -11,6 +11,7 @@ from core.models.unit_nodes import CreateRootUnitNodeResponse, UnitNode
 from core.models.unit_type import CreateUnitTypeResponse, UnitType
 from core.models.user import User
 from core.pages.auth import AuthPage
+from core.pages.blocks.org_node_delete_form import OrgNodeDeleteForm
 from core.pages.settings_org_tree import SettingsOrgTree
 from core.pages.unit_nodes_editor import UnitNodesEditor
 
@@ -170,7 +171,7 @@ def create_unit_mark(
 
 
 @pytest.fixture(scope='function')
-def create_root_node_unit_api(
+def create_root_node_unit(
         bff_client: BffApiClient,
         existing_unit_type: UnitType,
         create_unit_mark: UnitMark,
@@ -184,3 +185,21 @@ def create_root_node_unit_api(
     check_response_status(given=create_root_unit_resp.status_code, expected=HTTPStatus.CREATED)
     root_unit_node = CreateRootUnitNodeResponse(**create_root_unit_resp.json()).node
     return root_unit_node
+
+
+@pytest.fixture(scope='function')
+def link_unit_to_node(
+        bff_client: BffApiClient,
+        create_company: RootElem,
+        unit_name: str,
+        create_root_node_unit: UnitNode
+) -> AttachedNode:
+    attachable_node = CommonNode(name=unit_name,
+                                 parentId=create_company.rootElem.id,
+                                 unitNodeTreeRootIdRef=create_root_node_unit.id)
+    link_template_resp = bff_client.attach_unit_node(parent_id=create_company.rootElem.id,
+                                                     json=attachable_node.body_for_creation)
+    check_response_status(given=link_template_resp.status_code, expected=HTTPStatus.CREATED)
+    # TODO: Check for 'status' and 'visibility' PATCH requests
+    linked_node = AttachNodeResponse(**link_template_resp.json()).node
+    return linked_node

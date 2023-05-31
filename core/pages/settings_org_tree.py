@@ -81,6 +81,9 @@ class SettingsOrgTree(BasePage):
     def node_menu_button_locator(self) -> Locator:
         return self.locator('//button[@class[contains(.,"ColumnItem_ActionIcon")]]')
 
+    def unit_menu_button_locator(self, name) -> Locator:
+        return self.locator(f'//div[@class[contains(.,"Column_Content")]]/div[span[contains(.,"{name}")]]//button')
+
     @property
     def edit_node_menu_option(self):
         return self.locator('//span[@class[contains(.,"MenuItem_md")]]/span[contains(.,"Редактировать")]')
