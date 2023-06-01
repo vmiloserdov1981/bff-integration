@@ -1,4 +1,3 @@
-import os
 from http import HTTPStatus
 
 import pytest
@@ -7,14 +6,14 @@ from dotenv import load_dotenv
 from core.clients.auth_api import AuthApiClient
 from core.clients.bff_api import BffApiClient
 from core.helpers.unitnodes import delete_unitnode
-from core.helpers.utils import check_response_status, get_env_variable_as_dict
+from core.helpers.utils import check_response_status, env_path, get_env_variable_as_dict
 from core.models.tag import DeadZone, ParamItem, ParamRange, Tag, ThresholdItem, Thresholds
 from core.models.unit_marks import UnitMarksListResponse
 from core.models.user import User
 
 
 def pytest_sessionstart():
-    load_dotenv()
+    load_dotenv(dotenv_path=env_path())
 
 
 @pytest.fixture(scope='session')

@@ -11,6 +11,10 @@ def get_project_root() -> Path:
     return Path(__file__).parent.parent.parent
 
 
+def env_path() -> Path:
+    return get_project_root().joinpath('.env')
+
+
 def check_response_status(given: int, expected: int) -> None:
     assert given == expected, f'Given status code {given} is not equal to expected one {expected}'
 

@@ -1,19 +1,24 @@
+from http import HTTPStatus
+
 import allure
 import pytest
 from http import HTTPStatus
 from playwright.sync_api import Page
-from core.models.org_nodes import RootElem, RootNodeResponse, CommonNode, AttachNodeResponse, AttachedNode
+
+from core.models.org_nodes import AttachNodeResponse, AttachedNode
 from core.clients.bff_api import BffApiClient
-from core.helpers.utils import uniq_timestamp, check_response_status
 from core.consts.timeouts import Timeouts
+from core.helpers.utils import check_response_status, uniq_timestamp
+from core.models.org_nodes import CommonNode, RootElem, RootNodeResponse
 from core.models.unit_marks import CreateUnitMarkResponse, UnitMark
 from core.models.unit_nodes import CreateRootUnitNodeResponse, UnitNode
 from core.models.unit_type import CreateUnitTypeResponse, UnitType
 from core.models.user import User
 from core.pages.auth import AuthPage
-from core.pages.blocks.org_node_delete_form import OrgNodeDeleteForm
 from core.pages.settings_org_tree import SettingsOrgTree
 from core.pages.unit_nodes_editor import UnitNodesEditor
+
+pytest_plugins = ('core.plugins.snapshot', )
 
 
 @pytest.fixture(scope='session')
