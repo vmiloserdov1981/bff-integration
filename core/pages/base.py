@@ -22,6 +22,7 @@ class BasePage:
     def select_from_dropdown(self, dropdown: Locator, item: Locator):
         dropdown.click()
         self.wait_for_changes()
+        item.scroll_into_view_if_needed()
         item.click()
         self.wait_for_changes()
 
