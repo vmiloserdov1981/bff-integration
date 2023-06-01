@@ -85,6 +85,13 @@ def orgs_page(logged_page: Page, front_url: str) -> SettingsOrgTree:
 
 
 @pytest.fixture(scope='function')
+def mark_page(logged_page: Page, front_url: str) -> UnitNodesEditor:
+    marks_page = UnitNodesEditor(page=logged_page, host=front_url)
+    marks_page.visit()
+    return marks_page
+
+
+@pytest.fixture(scope='function')
 def unit_page(logged_page: Page, front_url: str) -> UnitNodesEditor:
     unit_page = UnitNodesEditor(page=logged_page, host=front_url)
     return unit_page
