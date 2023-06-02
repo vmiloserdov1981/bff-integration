@@ -1,5 +1,7 @@
 from typing import Callable
-from playwright.sync_api import Locator, Page, expect
+
+from playwright.sync_api import Locator, Page, expect, sync_playwright
+
 from core.consts.timeouts import Timeouts
 
 
