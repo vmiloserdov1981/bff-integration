@@ -10,8 +10,8 @@ class TestRulesPage:
 
     @allure.id('398')
     @allure.title('Создание, редактирование и удаление экспертного правила')
-    def test_administration_page_ui(self, default_user: User, rules_page: RulesPage, rules_name: str, description: str,
-                                    description_edit: str):
+    def test_creating_rule_ui(self, existing_equipment_type_and_brand, default_user: User, rules_page: RulesPage,
+                              rules_name: str, description: str, description_edit: str):
 
         with allure.step('Открыта страница администрирования'):
             rules_page.check_specific_locators()
