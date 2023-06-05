@@ -8,3 +8,7 @@ __pycache__/
 *.iml
 *.ipr
 .env
+venv
+darwin/
+win32/
+report/

@@ -1,4 +1,3 @@
-import os
 from http import HTTPStatus
 
 import pytest
@@ -7,14 +6,16 @@ from dotenv import load_dotenv
 from core.clients.auth_api import AuthApiClient
 from core.clients.bff_api import BffApiClient
 from core.helpers.unitnodes import delete_unitnode
-from core.helpers.utils import check_response_status, get_env_variable_as_dict
+from core.helpers.utils import check_response_status, env_path, get_env_variable_as_dict
 from core.models.tag import DeadZone, ParamItem, ParamRange, Tag, ThresholdItem, Thresholds
-from core.models.unit_marks import UnitMarksListResponse
+from core.models.unit_marks import CreateUnitMarkResponse, UnitMark, UnitMarksListResponse
+from core.models.unit_nodes import UnitNode
+from core.models.unit_type import CreateUnitTypeResponse, UnitType
 from core.models.user import User
 
 
 def pytest_sessionstart():
-    load_dotenv()
+    load_dotenv(dotenv_path=env_path())
 
 
 @pytest.fixture(scope='session')
@@ -138,3 +139,22 @@ def unit_type_ids_to_delete(bff_client: BffApiClient) -> list:
         if resp.status_code != HTTPStatus.NO_CONTENT:
             undeleted.append(type_id)
     assert not undeleted, f'Nodes {undeleted} was not deleted'
+
+
+@pytest.fixture(scope='function')  # TODO: Create equipment type and brand of equipment with root node
+def existing_equipment_type_and_brand(bff_client: BffApiClient, unit_type_scaffold: UnitType, unit_mark_name: str,
+                                      root_unit_node_name: str, unit_type_ids_to_delete: list):
+    create_ut_resp = bff_client.create_unit_type(json=unit_type_scaffold.body_for_creation)
+    # TODO: Report bug 200 isn't normal for creation. Should be 201
+    check_response_status(given=create_ut_resp.status_code, expected=HTTPStatus.OK)
+    unit_type = CreateUnitTypeResponse(**create_ut_resp.json()).unit_type
+    type_id = unit_type.id
+    unit_type_ids_to_delete.append(type_id)
+    create_mark_resp = bff_client.create_unit_mark(json=UnitMark(name=unit_mark_name, typeId=type_id).dict(
+        exclude_unset=True))
+    check_response_status(given=create_mark_resp.status_code, expected=HTTPStatus.CREATED)
+    mark = CreateUnitMarkResponse(**create_mark_resp.json()).unit_mark
+    mark_id = mark.id  # 8, type_id: 3 (Type_of Device)
+    root_node_scaffold = UnitNode(name=root_unit_node_name, typeId=type_id, markId=mark_id, unitKind='UNIT_NODE')
+    create_root_unit_resp = bff_client.create_root_unit_node(json=root_node_scaffold.body_for_root_creation)
+    check_response_status(given=create_root_unit_resp.status_code, expected=HTTPStatus.CREATED)

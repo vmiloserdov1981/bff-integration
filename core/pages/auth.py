@@ -74,6 +74,10 @@ class AuthPage(BasePage):
     def session_response_lambda(self) -> typing.Callable:
         return lambda r: self.session_request_path in r.url and r.request.method == 'GET'
 
+    @property
+    def logo_container(self) -> Locator:
+        return self.locator('div[class*="AuthLayout_LogoContainer"]')
+
     def check_specific_locators(self) -> None:
         expect(self.page).to_have_title(self.title)
         expect(self.logo).to_be_visible(timeout=Timeouts.DEFAULT)

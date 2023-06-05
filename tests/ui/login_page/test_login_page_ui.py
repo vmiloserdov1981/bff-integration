@@ -1,4 +1,5 @@
 import allure
+from playwright.sync_api import expect
 
 from core.consts.timeouts import Timeouts
 from core.models.user import User
@@ -54,3 +55,18 @@ class TestLoginPage:
 
         with allure.step('Кнопка "Войти" активна'):
             auth_page.check_enabled_submit_button()
+
+    @allure.id('543')
+    @allure.title('Проверка логотипа на странице логина')
+    def test_login_page_logo_ui(self, default_user: User, auth_page: AuthPage, assert_snapshot):
+        with allure.step('Открыта страница логина'):
+            auth_page.check_specific_locators()
+
+        with allure.step('Check login input'):
+            assert_snapshot(auth_page.login_input.screenshot(type='png'), 'login_input.png')
+
+        with allure.step('На странице присутствует логотип'):
+            expect(auth_page.logo_container).to_be_visible()
+
+        with allure.step('Логотип соответствует сохранённому образцу'):
+            assert_snapshot(auth_page.logo_container.screenshot(type='png'), 'login_page_logo.png')

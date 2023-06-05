@@ -1,6 +1,6 @@
 from typing import Callable
 
-from playwright.sync_api import Locator, Page, Response
+from playwright.sync_api import Locator, Page, expect, sync_playwright
 
 from core.consts.timeouts import Timeouts
 
@@ -24,5 +24,9 @@ class BasePage:
     def select_from_dropdown(self, dropdown: Locator, item: Locator):
         dropdown.click()
         self.wait_for_changes()
+        item.scroll_into_view_if_needed()
         item.click()
         self.wait_for_changes()
+
+    def check_locator_visibility(self, locator: Locator, timeout: float = Timeouts.DEFAULT) -> None:
+        expect(locator).to_be_visible(timeout=timeout)

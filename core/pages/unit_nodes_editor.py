@@ -72,7 +72,7 @@ class UnitNodesEditor(BasePage):
         return bff_client.unit_types_path()
 
     def create_unit_type_request_lambda(self, bff_client: BffApiClient) -> Callable:
-        return (lambda r: self.create_unit_type_url(bff_client=bff_client) in r.url and r.request.method == 'POST')
+        return lambda r: self.create_unit_type_url(bff_client=bff_client) in r.url and r.request.method == 'POST'
 
     @property
     def new_node_name_input(self) -> Locator:
@@ -106,11 +106,19 @@ class UnitNodesEditor(BasePage):
                 request.method == 'POST')
 
     @staticmethod
+    def create_child_node_request_url(bff_client: BffApiClient, node_id: int) -> str:
+        return bff_client.org_tree_child_nodes_path(node_id=node_id)
+
+    def create_child_node_request_lambda(self, bff_client: BffApiClient, node_id: int) -> Callable:
+        return (lambda r: self.create_child_node_request_url(bff_client=bff_client, node_id=node_id) in r.url and r.
+                request.method == 'POST')
+
+    @staticmethod
     def create_mark_request_url(bff_client: BffApiClient) -> str:
         return bff_client.unit_marks_path()
 
     def create_mark_request_lambda(self, bff_client: BffApiClient) -> Callable:
-        return (lambda r: self.create_mark_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST')
+        return lambda r: self.create_mark_request_url(bff_client=bff_client) in r.url and r.request.method == 'POST'
 
     @staticmethod
     def create_root_unit_node_request_url(bff_client: BffApiClient) -> str:
