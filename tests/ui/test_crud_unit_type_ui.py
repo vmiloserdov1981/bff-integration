@@ -6,7 +6,7 @@ from playwright.sync_api import expect
 from core.clients.bff_api import BffApiClient
 from core.consts.timeouts import Timeouts
 from core.helpers.utils import check_response_status
-from core.models.unit_type import CreateUnitTypeResponse
+from core.models.unit_type import CreateUnitTypeResponse, UnitType
 from core.pages.unit_nodes_editor import UnitNodesEditor
 
 
@@ -47,3 +47,34 @@ class TestCRUDUnitType:
 
         with allure.step('На странице присутствует пустое поле марки оборудования'):
             expect(unit_page.empty_mark_dropdown).to_be_visible()
+
+    @allure.id('214')
+    @allure.title('Редактирование типа оборудования')
+    def test_edit_unit_type(self,
+                            bff_client: BffApiClient,
+                            mark_page: UnitNodesEditor,
+                            unit_page: UnitNodesEditor,
+                            existing_unit_type: UnitType,
+                            unit_type_name: str,
+                            unit_type_name_edited: str,
+                            unit_type_ids_to_delete: list):
+        with allure.step('Открыть дропдаун типа оборудования'):
+            unit_page.unit_dropdown.click()
+            expect(unit_page.dropdown_wrapper).to_be_visible()
+
+        with allure.step('Нажать на кнопку редактирования типа'):
+            unit_page.dropdown_item_by_name(unit_type_name).hover()
+            unit_page.unit_type_edit_button_locator_by_name(unit_type_name).click()
+
+        with allure.step('Ввести измененное название типа и нажать Enter'):
+            unit_page.unit_type_edit_input.clear()
+            unit_page.unit_type_edit_input.type(unit_type_name_edited)
+
+            with unit_page.expect_response(unit_page.edit_unit_type_request_lambda(
+                    bff_client=bff_client, type_id=existing_unit_type.id)) as resp_info:
+                unit_page.page.keyboard.press('Enter')
+                response = resp_info.value
+                check_response_status(given=response.status, expected=HTTPStatus.OK)
+
+        with allure.step('В дропдауне присутствует тип с обновленным именем'):
+            expect(unit_page.dropdown_item_by_name(unit_type_name_edited)).to_have_count(1)
