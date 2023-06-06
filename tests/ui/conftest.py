@@ -112,6 +112,11 @@ def unit_type_name() -> str:
 
 
 @pytest.fixture(scope='function')
+def unit_type_name_edited() -> str:
+    return f'at_unit_type{uniq_timestamp()}_upd'
+
+
+@pytest.fixture(scope='function')
 def unit_mark_name() -> str:
     return f'at_unit_mark{uniq_timestamp()}'
 
