@@ -13,6 +13,7 @@ from core.models.unit_nodes import CreateRootUnitNodeResponse, UnitNode
 from core.models.unit_type import CreateUnitTypeResponse, UnitType
 from core.models.user import User
 from core.pages.auth import AuthPage
+from core.pages.rules import RulesPage
 from core.pages.settings_org_tree import SettingsOrgTree
 from core.pages.unit_nodes_editor import UnitNodesEditor
 
@@ -80,6 +81,20 @@ def orgs_page(logged_page: Page, front_url: str) -> SettingsOrgTree:
     settings_page = SettingsOrgTree(page=logged_page, host=front_url)
     settings_page.visit()
     return settings_page
+
+
+@pytest.fixture(scope='function')
+def rules_page(logged_page: Page, front_url: str) -> RulesPage:
+    rules_page = RulesPage(page=logged_page, host=front_url)
+    rules_page.visit()
+    return rules_page
+
+
+@pytest.fixture(scope='function')
+def mark_page(logged_page: Page, front_url: str) -> UnitNodesEditor:
+    marks_page = UnitNodesEditor(page=logged_page, host=front_url)
+    marks_page.visit()
+    return marks_page
 
 
 @pytest.fixture(scope='function')
@@ -166,8 +181,8 @@ def create_unit_mark(
 
 
 @pytest.fixture(scope='function')
-def create_root_node_unit(bff_client: BffApiClient, existing_unit_type: UnitType, create_unit_mark: UnitMark,
-                          root_unit_node_name: str) -> UnitNode:
+def create_root_node_unit_api(bff_client: BffApiClient, existing_unit_type: UnitType, create_unit_mark: UnitMark,
+                              root_unit_node_name: str) -> UnitNode:
     root_node_scaffold = UnitNode(name=root_unit_node_name,
                                   typeId=existing_unit_type.id,
                                   markId=create_unit_mark.id,
