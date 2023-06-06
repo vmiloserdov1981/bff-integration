@@ -67,3 +67,9 @@ class RulesPage(BasePage):
 
     def check_rule_display(self, name) -> Locator:
         return self.locator(f'//span[@class[contains(.,"Typography_Typography")]][contains(.,"{name}")]')
+
+    @property
+    def delete_rule_btn(self) -> Locator:
+        return self.locator(
+            '(//div[@class[contains(.,"Table_TableRow")]][contains(.,"1234")]//button[@class[contains(.,"IconButton_clear")]])[3]'
+        )
