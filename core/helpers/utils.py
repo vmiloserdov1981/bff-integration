@@ -28,6 +28,8 @@ def uniq_timestamp() -> int:
     time.sleep(1.0 / 1000)
     return ts
 
+# TODO: add generating uniq string_id (string_id = base_repr(num, 36).lower()) and its usage in tests
+
 
 def get_env_var(name: str) -> Union[str, None]:
     variable = os.environ.get(name)
