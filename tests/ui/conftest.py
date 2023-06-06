@@ -92,6 +92,7 @@ def mark_page(logged_page: Page, front_url: str) -> UnitNodesEditor:
 @pytest.fixture(scope='function')
 def unit_page(logged_page: Page, front_url: str) -> UnitNodesEditor:
     unit_page = UnitNodesEditor(page=logged_page, host=front_url)
+    unit_page.visit()
     return unit_page
 
 
@@ -167,8 +168,8 @@ def create_unit_mark(
 
 
 @pytest.fixture(scope='function')
-def create_root_node_unit_api(bff_client: BffApiClient, existing_unit_type: UnitType, create_unit_mark: UnitMark,
-                              root_unit_node_name: str) -> UnitNode:
+def create_root_node_unit(bff_client: BffApiClient, existing_unit_type: UnitType, create_unit_mark: UnitMark,
+                          root_unit_node_name: str) -> UnitNode:
     root_node_scaffold = UnitNode(name=root_unit_node_name,
                                   typeId=existing_unit_type.id,
                                   markId=create_unit_mark.id,
@@ -191,3 +192,23 @@ def link_unit_to_node(bff_client: BffApiClient, create_company: RootElem, unit_n
     # TODO: Check for 'status' and 'visibility' PATCH requests
     linked_node = AttachNodeResponse(**link_template_resp.json()).node
     return linked_node
+
+
+@pytest.fixture(scope='function')
+def child_unit_node_name() -> str:
+    return f'child_node_{uniq_timestamp()}'
+
+
+@pytest.fixture(scope='function')
+def subchild_unit_node_name() -> str:
+    return f'subchild_node_{uniq_timestamp()}'
+
+
+@pytest.fixture(scope='function')
+def unit_type_scaffold(unit_type_name: str) -> UnitType:
+    return UnitType(name=unit_type_name)
+
+
+@pytest.fixture(scope='function')
+def mark_name() -> str:
+    return f'mark_{uniq_timestamp()}'
