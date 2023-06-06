@@ -3,9 +3,10 @@ from http import HTTPStatus
 import allure
 from playwright.sync_api import expect
 
-from core.clients.bff_api import BffApiClient
 from core.consts.timeouts import Timeouts
 from core.helpers.utils import check_response_status
+from core.clients.bff_api import BffApiClient
+from core.pages.settings_org_tree import SettingsOrgTree
 from core.models.unit_type import CreateUnitTypeResponse, UnitType
 from core.pages.unit_nodes_editor import UnitNodesEditor
 
@@ -16,7 +17,6 @@ class TestCRUDUnitType:
     @allure.title('Создание типа оборудования')
     def test_create_unit_type(self,
                               bff_client: BffApiClient,
-                              mark_page: UnitNodesEditor,
                               unit_page: UnitNodesEditor,
                               unit_type_name: str,
                               unit_type_ids_to_delete: list):
@@ -52,7 +52,6 @@ class TestCRUDUnitType:
     @allure.title('Редактирование типа оборудования')
     def test_edit_unit_type(self,
                             bff_client: BffApiClient,
-                            mark_page: UnitNodesEditor,
                             unit_page: UnitNodesEditor,
                             existing_unit_type: UnitType,
                             unit_type_name: str,
@@ -78,3 +77,52 @@ class TestCRUDUnitType:
 
         with allure.step('В дропдауне присутствует тип с обновленным именем'):
             expect(unit_page.dropdown_item_by_name(unit_type_name_edited)).to_have_count(1)
+
+    @allure.id('215')
+    @allure.title('Удаление типа оборудования')
+    def test_delete_unit_type(self,
+                              bff_client: BffApiClient,
+                              orgs_page: SettingsOrgTree,
+                              unit_page: UnitNodesEditor,
+                              existing_unit_type: UnitType,
+                              unit_type_name: str,
+                              unit_type_ids_to_delete: list,
+                              ):
+        with allure.step('Открыть дропдаун типа оборудования'):
+            unit_page.unit_dropdown.click()
+            expect(unit_page.dropdown_wrapper).to_be_visible()
+
+        with allure.step('Нажать на кнопку удаления типа'):
+            unit_page.dropdown_item_by_name(unit_type_name).hover()
+            unit_page.unit_type_delete_button_locator_by_name(unit_type_name).click()
+
+        with allure.step('Открыто модальное окно подтверждения удаления'):
+            expect(orgs_page.delete_form.wrapper).to_have_count(1)
+
+        with allure.step('Нажать на кнопку отмены'):
+            orgs_page.delete_form.cancel_button.click()
+
+        with allure.step('Модальное окно подтверждения удаления закрыто'):
+            expect(orgs_page.delete_form.wrapper).to_have_count(0)
+
+        with allure.step('Созданный тип не удален и присутствует в дропдауне'):
+            unit_page.unit_dropdown.click()
+            expect(unit_page.dropdown_item_by_name(unit_type_name)).to_have_count(1)
+
+        with allure.step('Нажать на кнопку удаления типа'):
+            unit_page.dropdown_item_by_name(unit_type_name).hover()
+            unit_page.unit_type_delete_button_locator_by_name(unit_type_name).click()
+
+        with allure.step('Открыто модальное окно подтверждения удаления'):
+            expect(orgs_page.delete_form.wrapper).to_have_count(1)
+
+        with allure.step('Нажать на кнопку подтверждения удаления'):
+            with unit_page.expect_response(unit_page.delete_unit_type_request_lambda(
+                    bff_client=bff_client, type_id=existing_unit_type.id)) as resp_info:
+                unit_page.confirm_button.click()
+                response = resp_info.value
+                check_response_status(given=response.status, expected=HTTPStatus.NO_CONTENT)
+
+        with allure.step('В дропдауне отсутствует созданный тип'):
+            unit_page.unit_dropdown.click()
+            expect(unit_page.dropdown_item_by_name(unit_type_name)).to_have_count(0)

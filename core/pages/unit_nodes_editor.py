@@ -62,6 +62,9 @@ class UnitNodesEditor(BasePage):
     def unit_type_edit_button_locator_by_name(self, name: str) -> Locator:
         return self.locator(f'//div[@class[contains(.,"ListItem")]]/span[contains(.,"{name}")]/parent::div//button[1]')
 
+    def unit_type_delete_button_locator_by_name(self, name: str) -> Locator:
+        return self.locator(f'//div[@class[contains(.,"ListItem")]]/span[contains(.,"{name}")]/parent::div//button[2]')
+
     @property
     def unit_type_edit_input(self) -> Locator:
         return self.locator('//input')
@@ -73,6 +76,10 @@ class UnitNodesEditor(BasePage):
     def expand_button_locator_by_node_name(self, name: str) -> Locator:
         return self.locator(f'//div[@class[contains(.,"Table_TableRow")]]'
                             f'[contains(.,"{name}")]/div/div/div/button').nth(0)
+
+    @property
+    def confirm_button(self) -> Locator:
+        return self.locator('[role="dialog"] [class*="Button_primary"]')
 
     @staticmethod
     def create_unit_type_url(bff_client: BffApiClient) -> str:
@@ -88,6 +95,14 @@ class UnitNodesEditor(BasePage):
     def edit_unit_type_request_lambda(self, bff_client: BffApiClient, type_id: int) -> Callable:
         return lambda r: self.edit_unit_type_url(bff_client=bff_client,
                                                  type_id=type_id) in r.url and r.request.method == 'PATCH'
+
+    @staticmethod
+    def delete_unit_type_url(bff_client: BffApiClient, type_id: int) -> str:
+        return bff_client.unit_type_path(type_id=type_id)
+
+    def delete_unit_type_request_lambda(self, bff_client: BffApiClient, type_id: int) -> Callable:
+        return lambda r: self.delete_unit_type_url(bff_client=bff_client,
+                                                   type_id=type_id) in r.url and r.request.method == 'DELETE'
 
     @property
     def new_node_name_input(self) -> Locator:
