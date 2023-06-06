@@ -37,4 +37,10 @@ line_length = 120
 profile = 'black'
 
 [tool.yapf]
+based_on_style = "pep8"
 column_limit = 120
+indent_closing_brackets = false
+split_before_named_assigns = true
+split_before_first_argument = false
+dedent_closing_brackets = false
+split_all_comma_separated_values = true

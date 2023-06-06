@@ -90,6 +90,7 @@ def rules_page(logged_page: Page, front_url: str) -> RulesPage:
     return rules_page
 
 
+@pytest.fixture(scope='function')
 def mark_page(logged_page: Page, front_url: str) -> UnitNodesEditor:
     marks_page = UnitNodesEditor(page=logged_page, host=front_url)
     marks_page.visit()
@@ -99,6 +100,7 @@ def mark_page(logged_page: Page, front_url: str) -> UnitNodesEditor:
 @pytest.fixture(scope='function')
 def unit_page(logged_page: Page, front_url: str) -> UnitNodesEditor:
     unit_page = UnitNodesEditor(page=logged_page, host=front_url)
+    unit_page.visit()
     return unit_page
 
 
@@ -118,6 +120,11 @@ def unit_type_name() -> str:
 
 
 @pytest.fixture(scope='function')
+def unit_type_name_edited() -> str:
+    return f'at_unit_type{uniq_timestamp()}_upd'
+
+
+@pytest.fixture(scope='function')
 def unit_mark_name() -> str:
     return f'at_unit_mark{uniq_timestamp()}'
 
@@ -134,7 +141,9 @@ def root_node_scaffold(company_name: str) -> RootElem:
 
 
 @pytest.fixture(scope='function')  # TODO: add deletion entity if not deleted by teardown
-def create_company(bff_client: BffApiClient, company_name: str, root_node_scaffold: RootElem,
+def create_company(bff_client: BffApiClient,
+                   company_name: str,
+                   root_node_scaffold: RootElem,
                    root_node_ids_to_delete: list):
     request = bff_client.create_root_node(json=root_node_scaffold.body_for_creation)
     check_response_status(given=request.status_code, expected=HTTPStatus.CREATED)
@@ -149,7 +158,8 @@ def existing_company(create_company: RootElem, root_node_ids_to_delete: list) ->
 
 
 @pytest.fixture(scope='function')
-def existing_unit_type(bff_client: BffApiClient, unit_type_scaffold: UnitType,
+def existing_unit_type(bff_client: BffApiClient,
+                       unit_type_scaffold: UnitType,
                        unit_type_ids_to_delete: list) -> UnitType:
     create_ut_resp = bff_client.create_unit_type(json=unit_type_scaffold.body_for_creation)
     # TODO: Report bug 200 isn't normal for creation. Should be 201
@@ -166,15 +176,17 @@ def create_unit_mark(
     existing_unit_type: UnitType,
     unit_mark_name: str,
 ) -> UnitMark:
-    create_mark_resp = bff_client.create_unit_mark(
-        json=UnitMark(name=unit_mark_name, typeId=existing_unit_type.id).dict(exclude_unset=True))
+    create_mark_resp = bff_client.create_unit_mark(json=UnitMark(name=unit_mark_name,
+                                                                 typeId=existing_unit_type.id).dict(exclude_unset=True))
     check_response_status(given=create_mark_resp.status_code, expected=HTTPStatus.CREATED)
     unit_mark = CreateUnitMarkResponse(**create_mark_resp.json()).unit_mark
     return unit_mark
 
 
 @pytest.fixture(scope='function')
-def create_root_node_unit_api(bff_client: BffApiClient, existing_unit_type: UnitType, create_unit_mark: UnitMark,
+def create_root_node_unit_api(bff_client: BffApiClient,
+                              existing_unit_type: UnitType,
+                              create_unit_mark: UnitMark,
                               root_unit_node_name: str) -> UnitNode:
     root_node_scaffold = UnitNode(name=root_unit_node_name,
                                   typeId=existing_unit_type.id,
@@ -187,7 +199,9 @@ def create_root_node_unit_api(bff_client: BffApiClient, existing_unit_type: Unit
 
 
 @pytest.fixture(scope='function')
-def link_unit_to_node(bff_client: BffApiClient, create_company: RootElem, unit_name: str,
+def link_unit_to_node(bff_client: BffApiClient,
+                      create_company: RootElem,
+                      unit_name: str,
                       create_root_node_unit: UnitNode) -> AttachedNode:
     attachable_node = CommonNode(name=unit_name,
                                  parentId=create_company.rootElem.id,
@@ -198,3 +212,23 @@ def link_unit_to_node(bff_client: BffApiClient, create_company: RootElem, unit_n
     # TODO: Check for 'status' and 'visibility' PATCH requests
     linked_node = AttachNodeResponse(**link_template_resp.json()).node
     return linked_node
+
+
+@pytest.fixture(scope='function')
+def child_unit_node_name() -> str:
+    return f'child_node_{uniq_timestamp()}'
+
+
+@pytest.fixture(scope='function')
+def subchild_unit_node_name() -> str:
+    return f'subchild_node_{uniq_timestamp()}'
+
+
+@pytest.fixture(scope='function')
+def unit_type_scaffold(unit_type_name: str) -> UnitType:
+    return UnitType(name=unit_type_name)
+
+
+@pytest.fixture(scope='function')
+def mark_name() -> str:
+    return f'mark_{uniq_timestamp()}'

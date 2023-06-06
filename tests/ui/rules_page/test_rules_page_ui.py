@@ -41,8 +41,12 @@ class TestRulesPage:
             rules_page.rule_name_locator.type(rules_name)
 
         with allure.step('Выбрать частоту запуска правила: "Каждую минуту"'):
+
             rules_page.select_from_dropdown(dropdown=rules_page.start_frequency_dropdown,
                                             item=rules_page.choice_start_frequency(name=start_frequency))
+
+            rules_page.select_from_dropdown(dropdown=rules_page.create_form.start_frequency_dropdown,
+                                            item=rules_page.create_form.choice_start_frequency(name=start_frequency))
 
         with allure.step('Ввести описание для правила'):
             rules_page.rule_description_locator.type(description)
@@ -55,9 +59,16 @@ class TestRulesPage:
 
     @allure.id('379')
     @allure.title('Удаление экспертного правила')
-    def test_deleting_rule_ui(self, existing_equipment_type_and_brand, unit_type_scaffold: UnitType, default_user: User,
-                              rules_page: RulesPage, rules_name: str, description: str, description_edit: str,
-                              unit_type_name: str, unit_mark_name: str):
+    def test_deleting_rule_ui(self,
+                              existing_equipment_type_and_brand,
+                              unit_type_scaffold: UnitType,
+                              default_user: User,
+                              rules_page: RulesPage,
+                              rules_name: str,
+                              description: str,
+                              description_edit: str,
+                              unit_type_name: str,
+                              unit_mark_name: str):
 
         with allure.step('Открыта страница "Экспертные правила"'):
             rules_page.check_specific_locators()
@@ -75,4 +86,7 @@ class TestRulesPage:
 
         with allure.step('Нажать на кнопку корзины - "Удалить правило"'):
             rules_page.delete_rule_btn.click()
+
+        with allure.step('Нажать на кнопку корзины - "Удалить правило"'):
+            rules_page.delete_form.confirm_button.click()
             rules_page.wait(4000)
