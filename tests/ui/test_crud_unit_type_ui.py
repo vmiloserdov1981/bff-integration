@@ -1,24 +1,25 @@
+from http import HTTPStatus
+
 import allure
 from playwright.sync_api import expect
-from http import HTTPStatus
-from core.consts.timeouts import Timeouts
-from core.models.unit_type import CreateUnitTypeResponse
-from core.helpers.utils import check_response_status
+
 from core.clients.bff_api import BffApiClient
+from core.consts.timeouts import Timeouts
+from core.helpers.utils import check_response_status
+from core.models.unit_type import CreateUnitTypeResponse
 from core.pages.unit_nodes_editor import UnitNodesEditor
 
 
 class TestCRUDUnitType:
+
     @allure.id('213')
     @allure.title('Создание типа оборудования')
-    def test_create_unit_type(
-            self,
-            bff_client: BffApiClient,
-            mark_page: UnitNodesEditor,
-            unit_page: UnitNodesEditor,
-            unit_type_name: str,
-            unit_type_ids_to_delete: list,
-    ):
+    def test_create_unit_type(self,
+                              bff_client: BffApiClient,
+                              mark_page: UnitNodesEditor,
+                              unit_page: UnitNodesEditor,
+                              unit_type_name: str,
+                              unit_type_ids_to_delete: list):
         with allure.step('Открыть дропдаун типа оборудования'):
             unit_page.unit_dropdown.click()
             expect(unit_page.dropdown_wrapper).to_be_visible()
